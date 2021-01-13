@@ -9,6 +9,14 @@ body {
     padding: 0;
     background-color: #E7F3FF;
 }
+.margin-top {
+    margin-top: 3.5rem;
+}
+
+.icon-country {
+    width: 32px;
+    height: 25px;
+}
 /*.collapse .dropdown-menu {
     z-index: 3000;
 }*/
