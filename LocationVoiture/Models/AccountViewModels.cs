@@ -65,6 +65,21 @@ namespace LocationVoiture.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Full name")]
+        public string UserName { get; set; }
+        [Required]
+        [Display(Name = "Adress")]
+        public string UserAdress { get; set; }
+
+        [Required]
+        [Display(Name = "Type")]
+        public string UserType { get; set; }
+
+        [Required]
+        [Display(Name = "Phone number")]
+        public string UserPhone { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }

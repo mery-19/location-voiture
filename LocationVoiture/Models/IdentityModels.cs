@@ -10,6 +10,8 @@ namespace LocationVoiture.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public string UserType { get; set; }
+        public string UserAdress { get; set; }
         public virtual ICollection<Reclamation> Reclamations { get; set; }
         public virtual ICollection<Voiture> Voitures { get; set; }
 

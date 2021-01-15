@@ -181,6 +181,10 @@
     <Compile Include="Migrations\202101131256011_InitialCreate.Designer.cs">
       <DependentUpon>202101131256011_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101151745393_AddColumnToUser-Type.cs" />
+    <Compile Include="Migrations\202101151745393_AddColumnToUser-Type.Designer.cs">
+      <DependentUpon>202101151745393_AddColumnToUser-Type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -380,6 +384,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202101131256011_InitialCreate.resx">
       <DependentUpon>202101131256011_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101151745393_AddColumnToUser-Type.resx">
+      <DependentUpon>202101151745393_AddColumnToUser-Type.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

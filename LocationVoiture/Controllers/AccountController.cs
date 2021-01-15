@@ -139,6 +139,7 @@ namespace LocationVoiture.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.UserType = new SelectList(new[] { "Tenant", "Owner" });
             return View();
         }
 
@@ -151,7 +152,8 @@ namespace LocationVoiture.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                ViewBag.UserType = new SelectList(new[] { "Tenant", "Owner" });
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber=model.UserPhone, UserType=model.UserType,UserAdress=model.UserAdress };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
