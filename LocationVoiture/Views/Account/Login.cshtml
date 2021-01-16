@@ -4,7 +4,7 @@
     //ViewBag.Title = "Log in";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
     <div class="container">
         <div class="row">
             <div class="col-md-4 mx-auto">
@@ -17,14 +17,14 @@
                 <div class="row">
                             <div class="col">
                                 <center>
-                                    <p style="color:#3692EB;font-size:x-large;font-weight:bold">Welcome Dear</p>
+                                    <p style="color:#3692EB;font-size:x-large;font-weight:bold">@LocationVoiture.Resources.Views.Account.Login.welcomeDear</p>
                                 </center>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <span>Sign in with your email and password</span>
+                                    <span>@LocationVoiture.Resources.Views.Account.Login.msg</span>
                                 </center>
                             </div>
                         </div>
@@ -63,13 +63,13 @@
                             <div class="col-md-8 mx-auto">
                                 <center>
                                     <div class="form-group">
-                                        <input type="submit" value="Log in" class="btn btn-primary" style="background-color: #3692EB" />
+                                        <input type="submit" value="@LocationVoiture.Resources.Views.Account.Login.login" class="btn btn-primary" style="background-color: #3692EB" />
                                     </div>
                                 </center>
                             </div>
                 </div>
                 <center>
-                    @Html.ActionLink("Register as a new user", "Register")
+                    @Html.ActionLink(LocationVoiture.Resources.Views.Account.Login.register, "Register")
                 </center>
                 @* Enable this once you have account confirmation enabled for password reset functionality
                     <p>

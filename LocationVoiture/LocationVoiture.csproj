@@ -171,6 +171,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminDashboardController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="GestionLanguages.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReclamationsController.cs" />
@@ -188,6 +190,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Languages.cs" />
     <Compile Include="Models\LivraisonModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MarqueModel.cs" />
@@ -196,6 +199,21 @@
     <Compile Include="Models\ReservationModel.cs" />
     <Compile Include="Models\VoitureModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Views\Account\Login.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Account\Login.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Shared\_Layout.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Layout.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -369,6 +387,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Resources\Models\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -387,6 +408,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101151745393_AddColumnToUser-Type.resx">
       <DependentUpon>202101151745393_AddColumnToUser-Type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Account\Login.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Login.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Account\Login.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Login.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Shared\_Layout.fr.resx" />
+    <EmbeddedResource Include="Resources\Views\Shared\_Layout.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_Layout.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

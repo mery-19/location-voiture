@@ -17,6 +17,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
 
+
         @if (User.Identity.IsAuthenticated)
         {
 
@@ -35,22 +36,37 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                 <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         <img src="https://www.countryflags.io/fr/flat/32.png" class="icon-country"/> Français
-                     </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#"><img src="https://www.countryflags.io/fr/flat/32.png" class="icon-country" /> Français</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"><img src="https://www.countryflags.io/us/flat/32.png" class="icon-country"/> Anglais</a>
-            </div>
-        </li>
 
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Language
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @*   <a class="dropdown-item" href=" @Html.Action("ChangeLanguage","Home", new { lang = "fr"})"><img src="https://www.countryflags.io/fr/flat/32.png" class="icon-country" /> Français</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="@Html.Action("ChangeLanguage","Home", new { lang = "en"})"><img src="https://www.countryflags.io/us/flat/32.png" class="icon-country" /> Anglais</a>
+                            *@
+
+                            @foreach (var i in LocationVoiture.GestionLanguages.AvailableLanguages)
+                            {
+                            <p class="dropdown-item">
+                                <img src="https://www.countryflags.io/@i.LangCultureName/flat/32.png" class="icon-country" />
+                                <span class="text-black-50">
+                                    @Html.ActionLink(i.LanFullName, "ChangeLanguage", "Home", new { lang = i.LangCultureName }, null)
+                                </span>
+                            </p>
+                              
+                            }
+
+                        </div>
+                    </li>
+                
                 <li class="nav-item ">
-                    @Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link nav-text" })
+                    @Html.ActionLink(LocationVoiture.Resources.Views.Shared._Layout.home, "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link nav-text" })
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link nav-text" })
+                    @Html.ActionLink(LocationVoiture.Resources.Views.Shared._Layout.about, "About", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link nav-text" })
                 </li>
 
             </ul>
@@ -59,9 +75,19 @@
      
         </div>
     </nav>
+    <div>
+        @foreach(var i in LocationVoiture.GestionLanguages.AvailableLanguages)
+        {
+            <span>
+                @Html.ActionLink(i.LanFullName,"ChangeLanguage","Home", new { lang = i.LangCultureName}, null)
+            </span>
+        }
+    </div>
+
     <div class="content margin-top container">
         @RenderBody()
     </div>
+
 
 
 

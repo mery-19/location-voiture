@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System.Globalization;
+using System.Threading;
+using System.Web;
+
 
 namespace LocationVoiture.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        public ActionResult Index()
+        
+
+        public ActionResult Index(string lang)
         {
+            if(lang != null)
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(lang);
             return View();
         }
 
@@ -25,6 +32,14 @@ namespace LocationVoiture.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult ChangeLanguage(string lang)
+        {
+            new GestionLanguages().SetLanguage(lang);
+            return Redirect(Request.UrlReferrer.ToString());
+            /* obtient les informations sur l'URL de la précédente requête du client
+            qui était liée a la requête actuelle */
         }
     }
 }

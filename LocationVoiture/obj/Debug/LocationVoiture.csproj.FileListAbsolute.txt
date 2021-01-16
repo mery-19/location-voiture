@@ -327,3 +327,10 @@ C:\Users\merie\OneDrive\Bureau\location-voiture-master\LocationVoiture\obj\Debug
 C:\Users\merie\OneDrive\Bureau\location-voiture-master\LocationVoiture\obj\Debug\LocationVoiture.dll
 C:\Users\merie\OneDrive\Bureau\location-voiture-master\LocationVoiture\obj\Debug\LocationVoiture.pdb
 C:\Users\merie\OneDrive\Bureau\location-voiture-master\LocationVoiture\obj\Debug\LocationVoiture.Migrations.AddColumnToUserType.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.AddColumnToUserType.resources
+D:\mery\location-voiture\LocationVoiture\bin\fr\LocationVoiture.resources.dll
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Account.Login.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Account.Login.fr.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\fr\LocationVoiture.resources.dll
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared._Layout.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared._Layout.fr.resources

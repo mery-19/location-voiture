@@ -55,10 +55,10 @@ namespace LocationVoiture.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "password", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Login))]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "remember", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Login))]
         public bool RememberMe { get; set; }
     }
 
