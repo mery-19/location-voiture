@@ -15,12 +15,12 @@
                     <div class="card-body">
                         @Html.ValidationSummary("", new { @class = "text-danger" })
                         <!--<div class="row">
-                            <div class="col">
-                                <center>
-                                    <img style="width:100px" src="imgs/generaluser.png" />
-                                </center>
-                            </div>
-                        </div>-->
+        <div class="col">
+            <center>
+                <img style="width:100px" src="imgs/generaluser.png" />
+            </center>
+        </div>
+    </div>-->
                         <div class="row">
                             <div class="col">
                                 <center>
@@ -48,17 +48,19 @@
                                 @Html.LabelFor(m => m.UserAdress)
                                 @Html.TextAreaFor(m => m.UserAdress, new { @class = "form-control" })
                             </div>
-                            <div class="col-md-6">
-                                @Html.LabelFor(m => m.UserType)
-                                @Html.DropDownList("UserType", null, new { @class = "form-control" })
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8 mx-auto">
+                            <div class="col-md-6 mx-auto">
                                 @Html.LabelFor(m => m.Email)
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.LabelFor(m => m.UserType)
+                                @Html.DropDownList("UserType", null, new { @class = "form-control"})
+                            </div>
+                          
+                        </div>
+                        
                         <div class="row">
                             <div class="col-md-6">
                                 @Html.LabelFor(m => m.Password)
@@ -78,7 +80,7 @@
                             <div class="col-md-8 mx-auto">
                                 <center>
                                     <div class="form-group">
-                                            <input type="submit" class="btn btn-primary" value="Register" style="background-color: #3692EB"/>
+                                        <input type="submit" class="btn btn-primary" value="Register" style="background-color: #3692EB" />
                                     </div>
                                 </center>
                             </div>

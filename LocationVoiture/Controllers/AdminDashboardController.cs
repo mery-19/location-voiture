@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace LocationVoiture.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class AdminDashboardController : Controller
     {
         // GET: AdminDashboard

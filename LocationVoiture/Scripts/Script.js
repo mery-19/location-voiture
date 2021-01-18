@@ -1,6 +1,7 @@
 ﻿
 
 $(document).ready(function () {
+
     $('.sideMenuToggler').on('click', function () {
         $('.wrapper').toggleClass('active');
 
@@ -18,5 +19,14 @@ $(document).ready(function () {
     $(window).resize(function () {
         adjustSidebar();
     });
+
+
+      /*  $("#UserType").change(function () {
+            console("clicked");
+            var val = $('#type option:selected').val();
+            console.log(val);
+
+        });*/
+    
 
 });

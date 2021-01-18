@@ -334,3 +334,13 @@ D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Vie
 D:\mery\location-voiture\LocationVoiture\obj\Debug\fr\LocationVoiture.resources.dll
 D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared._Layout.resources
 D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared._Layout.fr.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared._OwnerDashboard.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared._OwnerDashboard.fr.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared._LoginPartial.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared._LoginPartial.fr.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared._TenantDashboard.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared._TenantDashboard.fr.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Models.MarqueModel.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Models.MarqueModel.fr.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Models.VoitureModel.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Models.VoitureModel.fr.resources

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<LocationVoiture.Models.Marque>
+@{
+    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.libele)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_ajout)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.libele)
+            </td>
+            <td>
+                 @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
+            </td>
+            <td>
+
+                <a href="@Url.Action("Edit", "Marques", new { id = item.id_marque })" class="text-warning">
+                    <i class="material-icons icon ">
+                        edit
+                    </i>
+                </a>
+                <a href="@Url.Action("Details", "Marques", new { id = item.id_marque })" class="text-success">
+                    <i class="material-icons icon ">
+                        visibility
+                    </i>
+                </a>
+                <a href="@Url.Action("Delete", "Marques", new { id = item.id_marque })" class="text-danger">
+                    <i class="material-icons icon ">
+                        delete
+                    </i>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

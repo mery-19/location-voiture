@@ -172,6 +172,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\MarquesController.cs" />
+    <Compile Include="Controllers\OwnerDashboardController.cs" />
+    <Compile Include="Controllers\TenantDashboardController.cs" />
+    <Compile Include="Controllers\VoituresController.cs" />
     <Compile Include="GestionLanguages.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -199,6 +203,21 @@
     <Compile Include="Models\ReservationModel.cs" />
     <Compile Include="Models\VoitureModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Models\MarqueModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarqueModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\VoitureModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VoitureModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\VoitureModel.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VoitureModel.fr.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Account\Login.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -213,6 +232,31 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_Layout.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Shared\_LoginPartial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_LoginPartial.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Shared\_OwnerDashboard.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_OwnerDashboard.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Shared\_OwnerDashboard.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_OwnerDashboard.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Shared\_TenantDashboard.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_TenantDashboard.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Shared\_TenantDashboard.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_TenantDashboard.fr.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -333,6 +377,8 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Uploads\logo.jpg" />
+    <Content Include="Uploads\logo.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -384,10 +430,25 @@
     <Content Include="Views\Reclamations\Details.cshtml" />
     <Content Include="Views\Reclamations\Edit.cshtml" />
     <Content Include="Views\Reclamations\Index.cshtml" />
+    <Content Include="Views\Shared\_TenantDashboard.cshtml" />
+    <Content Include="Views\Shared\_OwnerDashboard.cshtml" />
+    <Content Include="Views\TenantDashboard\Index.cshtml" />
+    <Content Include="Views\OwnerDashboard\Index.cshtml" />
+    <Content Include="Views\Marques\Create.cshtml" />
+    <Content Include="Views\Marques\Delete.cshtml" />
+    <Content Include="Views\Marques\Details.cshtml" />
+    <Content Include="Views\Marques\Edit.cshtml" />
+    <Content Include="Views\Marques\Index.cshtml" />
+    <Content Include="Views\Voitures\Create.cshtml" />
+    <Content Include="Views\Voitures\Delete.cshtml" />
+    <Content Include="Views\Voitures\Details.cshtml" />
+    <Content Include="Views\Voitures\Edit.cshtml" />
+    <Content Include="Views\Voitures\Index.cshtml" />
+    <Content Include="Views\Voitures\ListeVoiture.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Resources\Models\" />
+    <Folder Include="Uploads\cars\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Language\" />
   </ItemGroup>
@@ -409,6 +470,19 @@
     <EmbeddedResource Include="Migrations\202101151745393_AddColumnToUser-Type.resx">
       <DependentUpon>202101151745393_AddColumnToUser-Type.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\MarqueModel.fr.resx" />
+    <EmbeddedResource Include="Resources\Models\MarqueModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MarqueModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\VoitureModel.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>VoitureModel.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\VoitureModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>VoitureModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Account\Login.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Login.fr.Designer.cs</LastGenOutput>
@@ -421,6 +495,27 @@
     <EmbeddedResource Include="Resources\Views\Shared\_Layout.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>_Layout.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Shared\_LoginPartial.fr.resx" />
+    <EmbeddedResource Include="Resources\Views\Shared\_LoginPartial.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_LoginPartial.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Shared\_OwnerDashboard.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_OwnerDashboard.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Shared\_OwnerDashboard.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_OwnerDashboard.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Shared\_TenantDashboard.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_TenantDashboard.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Shared\_TenantDashboard.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>_TenantDashboard.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
