@@ -11,80 +11,71 @@
 
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.id_voiture)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicationUser.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Marque.libele)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nb_passagers)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.couleur)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.prix)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.anne)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.km)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.date_ajout)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table class="table table-striped" id="cars">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_voiture)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Marque.libele)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nb_passagers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.couleur)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.prix)
-            </td>
-            <td>
-                <img src="~/Uploads/cars/@Html.DisplayFor(model => item.photo)" class="img-thumbnail" style="width:48px; height:48px;" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.anne)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.km)
-            </td>
-            <td>
-                @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id_voiture }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id_voiture }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id_voiture })
-            </td>
+            <th>
+                Id
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marque.libele)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.couleur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.anne)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.km)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_ajout)
+            </th>
+            <th></th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_voiture)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marque.libele)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.couleur)
+                </td>
+                <td>
+                    <img src="~/Uploads/cars/@Html.DisplayFor(model => item.photo)" class="img-thumbnail" style="width:48px; height:48px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.anne)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.km)
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id_voiture }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id_voiture }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id_voiture })
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>

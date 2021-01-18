@@ -4,6 +4,10 @@
     dark-blue: #283E76
 */
 
+table tr{
+    background-color:white;
+}
+
 body {
     margin: 0;
     padding: 0;
