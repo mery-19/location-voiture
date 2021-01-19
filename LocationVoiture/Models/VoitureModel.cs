@@ -51,6 +51,7 @@ namespace LocationVoiture.Models
         [Display(Name = "km", ResourceType = typeof(LocationVoiture.Resources.Models.VoitureModel))]
         public decimal km { get; set; }
 
+        [Display(Name = "add_date", ResourceType = typeof(LocationVoiture.Resources.Models.VoitureModel))]
         public DateTime date_ajout { get; set; }
 
         public virtual ICollection<Reservation> Reservations { get; set; }

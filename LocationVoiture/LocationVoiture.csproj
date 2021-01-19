@@ -218,6 +218,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VoitureModel.fr.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\most.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>most.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\most.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>most.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Scripts\Script.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Script.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Account\Login.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -718,6 +733,19 @@
     <EmbeddedResource Include="Resources\Models\VoitureModel.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>VoitureModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\most.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>most.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\most.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>most.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Scripts\Script.fr.resx" />
+    <EmbeddedResource Include="Resources\Scripts\Script.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Script.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Account\Login.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

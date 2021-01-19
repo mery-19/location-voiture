@@ -28,6 +28,7 @@ $(document).ready(function () {
 
         });*/
 
+
     var frensh = {
         "language": {
             "sProcessing": "Traitement en cours ...",
@@ -50,7 +51,17 @@ $(document).ready(function () {
             }
         }
     }
-    window.$('#cars').DataTable();
+    if (Cookies.get('culture') === "fr") {
+        window.$('#cars').DataTable(frensh);
+        window.$('#categories').DataTable(frensh);
 
+    } else {
+        window.$('#cars').DataTable();
+        window.$('#categories').DataTable();
+    }
 
+    $(function () {
+        console.log(Cookies.get('culture'));
+
+    });
 });

@@ -344,3 +344,7 @@ D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Mod
 D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Models.MarqueModel.fr.resources
 D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Models.VoitureModel.resources
 D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Models.VoitureModel.fr.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Scripts.Script.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Scripts.Script.fr.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.most.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.most.fr.resources

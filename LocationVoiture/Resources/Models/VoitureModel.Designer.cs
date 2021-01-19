@@ -61,6 +61,15 @@ namespace LocationVoiture.Resources.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add date.
+        /// </summary>
+        public static string add_date {
+            get {
+                return ResourceManager.GetString("add_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Year.
         /// </summary>
         public static string anne {
