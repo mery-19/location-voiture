@@ -132,3 +132,7 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.pointer {
+    cursor: pointer;
+}

@@ -64,7 +64,14 @@
                     </dt>
 
                     <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.disponible)
+                        @if (Model.disponible)
+                        {
+                            <span>  @LocationVoiture.Resources.most.yes</span>
+                        }
+                        else
+                        {
+                            <span>  @LocationVoiture.Resources.most.no</span>
+                        }
                     </dd>
 
                     <dt class="col-md-4">

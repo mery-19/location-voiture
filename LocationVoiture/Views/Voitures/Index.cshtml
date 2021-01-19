@@ -29,10 +29,7 @@
                     @Html.DisplayNameFor(model => model.photo)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.anne)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.km)
+                    @Html.DisplayNameFor(model => model.disponible)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.date_ajout)
@@ -60,10 +57,14 @@
                         <img src="~/Uploads/cars/@Html.DisplayFor(model => item.photo)" class="img-thumbnail" style="width:48px; height:48px;" />
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.anne)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.km)
+                        @if (item.disponible)
+                        {
+                            <span>  @LocationVoiture.Resources.most.yes</span>
+                        }
+                        else
+                        {
+                            <span>  @LocationVoiture.Resources.most.no</span>
+                        }
                     </td>
                     <td>
                         @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
@@ -79,11 +80,12 @@
                                 visibility
                             </i>
                         </a>
-                        <a href="@Url.Action("Delete", "Voitures", new { id = item.id_voiture })" class="text-danger">
+                        <a data-delete-id="@item.id_voiture" class="text-danger delete-link-voiture pointer">
                             <i class="material-icons icon ">
                                 delete
                             </i>
                         </a>
+                        @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
                     </td>
                 </tr>
             }
