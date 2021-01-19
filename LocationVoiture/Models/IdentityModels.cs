@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace LocationVoiture.Models
     {
         public string UserType { get; set; }
         public string UserAdress { get; set; }
+        public DateTime date_join { get; set; }
         public virtual ICollection<Reclamation> Reclamations { get; set; }
         public virtual ICollection<Voiture> Voitures { get; set; }
 

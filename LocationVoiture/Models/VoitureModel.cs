@@ -49,7 +49,7 @@ namespace LocationVoiture.Models
         public int anne { get; set; }
 
         [Display(Name = "km", ResourceType = typeof(LocationVoiture.Resources.Models.VoitureModel))]
-        public decimal km { get; set; }
+        public string km { get; set; }
 
         [Display(Name = "add_date", ResourceType = typeof(LocationVoiture.Resources.Models.VoitureModel))]
         public DateTime date_ajout { get; set; }

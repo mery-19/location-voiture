@@ -155,11 +155,12 @@ namespace LocationVoiture.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.UserType = new SelectList(new[] { "Tenant", "Owner" });
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber=model.UserPhone, UserType=model.UserType,UserAdress=model.UserAdress };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber=model.UserPhone, UserType=model.UserType,UserAdress=model.UserAdress, date_join = DateTime.Now };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     UserManager.AddToRole(user.Id, model.UserType);
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

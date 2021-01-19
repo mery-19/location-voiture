@@ -93,10 +93,8 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.km, htmlAttributes: new { @class = "control-label" })
                         <div>
-                            @Html.EditorFor(model => model.km, new { htmlAttributes = new { @class = "form-control", @type = "number"} })
+                            @Html.EditorFor(model => model.km, new { htmlAttributes = new { @class = "form-control", @type = "number", @min = "0" } })
                             @Html.ValidationMessageFor(model => model.km, "", new { @class = "text-danger" })
-                            @Html.DisplayFor(modelItem => Model.km)
-
                         </div>
                     </div>
                 </div>

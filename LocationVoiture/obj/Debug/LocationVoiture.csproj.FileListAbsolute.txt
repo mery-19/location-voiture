@@ -352,3 +352,5 @@ D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Vie
 D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Voitures.Create.fr.resources
 D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Voitures.Edit.resources
 D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Voitures.Edit.fr.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Models.Locataire.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Models.Locataire.fr.resources

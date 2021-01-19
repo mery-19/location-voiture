@@ -53,11 +53,18 @@ $(document).ready(function () {
     }
     if (Cookies.get('culture') === "fr") {
         window.$('#cars').DataTable(frensh);
-        window.$('#categories').DataTable(frensh);
+        window.$('#categories').DataTable(frensh); 
+        window.$('#locataires').DataTable(frensh); 
+
+        $("#selected-language").html ("<img src='https://www.countryflags.io/fr/flat/32.png' class='icon-country' /> Français");
 
     } else {
         window.$('#cars').DataTable();
         window.$('#categories').DataTable();
+        window.$('#locataires').DataTable(); 
+        $("#selected-language").html("<img src='https://www.countryflags.io/us/flat/32.png' class='icon-country' /> English");
+
+
     }
 
     $(function () {
