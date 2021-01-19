@@ -96,10 +96,17 @@ namespace LocationVoiture.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_voiture,UserId,id_marque,id_offre,nb_passagers,couleur,prix,photo,disponible,anne,km,date_ajout")] Voiture voiture)
+        public ActionResult Edit(Voiture voiture, HttpPostedFileBase carImage)
         {
             if (ModelState.IsValid)
             {
+                if (carImage != null)
+                {
+                    string path = Path.Combine(Server.MapPath("~/Uploads/cars"), carImage.FileName);
+                    carImage.SaveAs(path);
+                    voiture.photo = carImage.FileName;
+                }
+               
                 db.Entry(voiture).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
