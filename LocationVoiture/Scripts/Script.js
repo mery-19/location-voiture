@@ -96,4 +96,33 @@ $(document).ready(function () {
         }
         );
     });
+
+    $(function () {
+        $("a.delete-link-reserve").click(function () {
+
+            var token = $("[name='__RequestVerificationToken']").val();
+
+            console.log(token);
+            var checkstr;
+            if (Cookies.get('culture') === "fr") {
+                checkstr = confirm('Voullez vous vraiment supprimer cette réservation?');
+
+            } else {
+                checkstr = confirm('are you sure you want to delete this reservation?');
+            }
+            if (checkstr == true) {
+                $.ajax({
+                    url: '/Reservations/Delete/' + $(".delete-link-reserve").attr('data-delete-id'),
+                    type: "POST",
+                    data: {
+                        __RequestVerificationToken: token,
+                    },
+                    success: function () {
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+        );
+    });
 });

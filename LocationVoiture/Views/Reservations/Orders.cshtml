@@ -2,9 +2,12 @@
 @model IEnumerable<LocationVoiture.Models.Reservation>
 
 @{
-    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
 }
 
-<h2>Orders</h2>
+<div class="mt-2">
+    <h2>Reservations</h2>
+    <hr />
 
-@Html.Partial("ListReservations", Model)
+    @Html.Partial("ListReservations", Model)
+</div>

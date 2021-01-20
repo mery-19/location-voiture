@@ -39,6 +39,46 @@ namespace LocationVoiture.Controllers
             return View(voitures.ToList());
         }
 
+        [Authorize]
+        public ActionResult Disponible(DateTime? date)
+        {
+            var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
+            var voitures = db.Voitures.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre).ToList();
+            List<Voiture> disponibles = new List<Voiture>();
+            List<Voiture> reserver = new List<Voiture>();
+            DateTime pick_up, date_return;
+            if(date != null)
+            {
+                foreach (Voiture voiture in voitures)
+                {
+                    var reservartions = db.Reservations.Where(x => x.id_voiture == voiture.id_voiture).ToList() ;
+                    foreach (Reservation res in reservartions)
+                    {
+                        
+                            pick_up = res.date_prise_en_charge;
+                            date_return = res.date_retour;
+
+                            if (date >= DateTime.Now && date <= date_return && date >= pick_up)
+                            {
+                            reserver.Add(voiture);
+                            }
+                     
+                    }
+                }
+
+                foreach(var res in reserver)
+                {
+                    voitures.Remove(res);
+                }
+                return View(voitures);
+            } else
+            {
+                return View();
+
+            }
+
+        }
+
         // GET: Voitures/Details/5
         public ActionResult Details(int? id)
         {
@@ -126,7 +166,7 @@ namespace LocationVoiture.Controllers
                
                 db.Entry(voiture).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyCars");
             }
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", voiture.UserId);
             ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", voiture.id_marque);
@@ -157,7 +197,7 @@ namespace LocationVoiture.Controllers
             Voiture voiture = db.Voitures.Find(id);
             db.Voitures.Remove(voiture);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("MyCars");
         }
 
         protected override void Dispose(bool disposing)

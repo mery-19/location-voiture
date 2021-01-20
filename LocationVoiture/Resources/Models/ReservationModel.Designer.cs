@@ -106,6 +106,15 @@ namespace LocationVoiture.Resources.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This car is not available at the time tha you chosed..
+        /// </summary>
+        public static string not_disponible_msg {
+            get {
+                return ResourceManager.GetString("not_disponible_msg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Owner.
         /// </summary>
         public static string owner {
@@ -129,6 +138,15 @@ namespace LocationVoiture.Resources.Models {
         public static string remarque {
             get {
                 return ResourceManager.GetString("remarque", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tenant.
+        /// </summary>
+        public static string tenant {
+            get {
+                return ResourceManager.GetString("tenant", resourceCulture);
             }
         }
     }

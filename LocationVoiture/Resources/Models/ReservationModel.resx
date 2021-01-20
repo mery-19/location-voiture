@@ -132,6 +132,9 @@
   <data name="matricule" xml:space="preserve">
     <value>Registration number</value>
   </data>
+  <data name="not_disponible_msg" xml:space="preserve">
+    <value>This car is not available at the time tha you chosed.</value>
+  </data>
   <data name="owner" xml:space="preserve">
     <value>Owner</value>
   </data>
@@ -140,5 +143,8 @@
   </data>
   <data name="remarque" xml:space="preserve">
     <value>Note</value>
+  </data>
+  <data name="tenant" xml:space="preserve">
+    <value>Tenant</value>
   </data>
 </root>

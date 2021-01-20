@@ -1,7 +1,25 @@
 ﻿@model IEnumerable<LocationVoiture.Models.Voiture>
 
-@{
+@if (User.IsInRole("Tenant"))
+{
+    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+}
+else if (User.IsInRole("Owner"))
+{
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
 }
+else if (User.IsInRole("Admin"))
+{
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+
+<hr />
+
+<h4>@LocationVoiture.Resources.Views.Voitures.Create.car</h4>
+<hr />
+
+<p>
+    @Html.ActionLink(LocationVoiture.Resources.most.create, "Create")
+</p>
 
 @Html.Partial("ListeVoiture", Model)

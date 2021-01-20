@@ -1,6 +1,15 @@
 ﻿@model LocationVoiture.Models.Voiture
-@{
+@if (User.IsInRole("Tenant"))
+{
+    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+}
+else if (User.IsInRole("Owner"))
+{
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+}
+else if (User.IsInRole("Admin"))
+{
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
 }
 <div class="m-5">
     <h2>Details</h2>
@@ -12,11 +21,18 @@
             <div class="col-md-8">
                 <dl class="dl-horizontal row">
                     <dt class="col-md-4">
-                        @Html.DisplayNameFor(model => model.ApplicationUser.UserType)
+                        @LocationVoiture.Resources.Models.ReservationModel.matricule
                     </dt>
 
                     <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.ApplicationUser.UserType)
+                        @Html.DisplayFor(model => model.matricul)
+                    </dd>
+                    <dt class="col-md-4">
+                        @LocationVoiture.Resources.most.owner
+                    </dt>
+
+                    <dd class="col-md-8">
+                        @Html.DisplayFor(model => model.ApplicationUser.UserName)
                     </dd>
 
                     <dt class="col-md-4">
@@ -28,7 +44,7 @@
                     </dd>
 
                     <dt class="col-md-4">
-                        @Html.DisplayNameFor(model => model.Offre.libele)
+                        Offre
                     </dt>
 
                     <dd class="col-md-8">
@@ -56,23 +72,23 @@
                     </dt>
 
                     <dd class="col-md-8">
-                        @Html.DisplayFor(model => model.prix)
+                        @Html.DisplayFor(model => model.prix) DH
                     </dd>
 
-                    <dt class="col-md-4">
-                        @Html.DisplayNameFor(model => model.disponible)
-                    </dt>
+                    @*<dt class="col-md-4">
+                            @Html.DisplayNameFor(model => model.disponible)
+                        </dt>
 
-                    <dd class="col-md-8">
-                        @if (Model.disponible)
-                        {
-                            <span>  @LocationVoiture.Resources.most.yes</span>
-                        }
-                        else
-                        {
-                            <span>  @LocationVoiture.Resources.most.no</span>
-                        }
-                    </dd>
+                        <dd class="col-md-8">
+                            @if (Model.disponible)
+                            {
+                                <span>  @LocationVoiture.Resources.most.yes</span>
+                            }
+                            else
+                            {
+                                <span>  @LocationVoiture.Resources.most.no</span>
+                            }
+                        </dd>*@
 
                     <dt class="col-md-4">
                         @Html.DisplayNameFor(model => model.anne)
@@ -105,10 +121,22 @@
 
             </div>
         </div>
-    
+
     </div>
-    <p>
-        @Html.ActionLink(@LocationVoiture.Resources.Views.Voitures.Edit.edit, "Edit", new { id = Model.id_voiture }) |
-        @Html.ActionLink(@LocationVoiture.Resources.most.back, "Index")
-    </p>
+    @if (User.IsInRole("Owner"))
+    {
+        <p>
+
+            @Html.ActionLink(LocationVoiture.Resources.Views.Voitures.Edit.edit, "Edit", new { id = Model.id_voiture }) |
+            @Html.ActionLink(LocationVoiture.Resources.most.back, "MyCars")
+        </p>
+
+    } else
+    {
+<p>
+    @Html.ActionLink(LocationVoiture.Resources.most.back, "All")
+
+</p>
+    }
+
 </div>

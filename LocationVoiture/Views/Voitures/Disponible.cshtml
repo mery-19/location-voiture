@@ -1,0 +1,28 @@
+﻿@model IEnumerable<LocationVoiture.Models.Voiture>
+
+@if (User.IsInRole("Tenant"))
+{
+    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+}
+else if (User.IsInRole("Owner"))
+{
+    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+}
+else if (User.IsInRole("Admin"))
+{
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+
+<div class="m-5">
+    @using (Html.BeginForm())
+    {
+    <div class="d-flex">
+        <input type="date" name="date" class="form-control" />
+        <input type="submit" value=@LocationVoiture.Resources.most.search class="btn btn-primary ml-2" />
+    </div>
+     }
+
+    <hr />
+
+    @Html.Partial("ListeVoiture", Model)
+</div>

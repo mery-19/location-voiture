@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/_TenantDashboard.cshtml";
 }
 
-<h2>Index</h2>
+<div class="mt-2">
+    <h2>Reservations</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-
-@Html.Partial("ListReservations", Model)
+    <p>
+        @Html.ActionLink(LocationVoiture.Resources.most.create, "Create")
+    </p>
+    <hr />
+    @Html.Partial("ListReservations", Model)
+</div>

@@ -19,7 +19,19 @@
     <div class="row">
         <div class="col-md-6 col-12">
             <div class="form-group">
-                @Html.LabelFor(model => model.id_marque, "id_marque", htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => model.matricul, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.matricul, new { htmlAttributes = new { @class = "form-control"} })
+                    @Html.ValidationMessageFor(model => model.matricul, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="form-group">
+                @Html.LabelFor(model => model.id_marque, LocationVoiture.Resources.Views.Shared._OwnerDashboard.model, htmlAttributes: new { @class = "control-label" })
                 <div>
                     @Html.DropDownList("id_marque", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.id_marque, "", new { @class = "text-danger" })
@@ -28,7 +40,7 @@
         </div>
         <div class="col-md-6 col-12">
             <div class="form-group">
-                @Html.LabelFor(model => model.id_offre, "id_offre", htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => model.id_offre, "Offre", htmlAttributes: new { @class = "control-label" })
                 <div>
                     @Html.DropDownList("id_offre", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.id_offre, "", new { @class = "text-danger" })
@@ -74,7 +86,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.photo, htmlAttributes: new { @class = "control-label" })
                 <div>
-                    <input type="file" name="carImage" id="carImage" class="form-control" />
+                    <input type="file" name="carImage" id="carImage" class="form-control-file" />
                     @Html.ValidationMessageFor(model => model.photo, "", new { @class = "text-danger" })
                 </div>
             </div>

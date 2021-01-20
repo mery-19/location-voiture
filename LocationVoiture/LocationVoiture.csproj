@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminDashboardController.cs" />
+    <Compile Include="Controllers\ApplicationUsersController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\LocatairesController.cs" />
     <Compile Include="Controllers\MarquesController.cs" />
@@ -755,6 +756,12 @@
     <Content Include="Views\Paiements\Index.cshtml" />
     <Content Include="Views\Reservations\ListReservations.cshtml" />
     <Content Include="Views\Reservations\Orders.cshtml" />
+    <Content Include="Views\ApplicationUsers\Create.cshtml" />
+    <Content Include="Views\ApplicationUsers\Delete.cshtml" />
+    <Content Include="Views\ApplicationUsers\Details.cshtml" />
+    <Content Include="Views\ApplicationUsers\Edit.cshtml" />
+    <Content Include="Views\ApplicationUsers\Index.cshtml" />
+    <Content Include="Views\Voitures\Disponible.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

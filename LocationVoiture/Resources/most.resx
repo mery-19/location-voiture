@@ -126,8 +126,14 @@
   <data name="no" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
   <data name="save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="yes" xml:space="preserve">
     <value>Yes</value>

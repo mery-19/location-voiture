@@ -10,7 +10,7 @@ using LocationVoiture.Models;
 
 namespace LocationVoiture.Controllers
 {
-    public class ReservationsController : Controller
+    public class ReservationsController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -68,13 +68,19 @@ namespace LocationVoiture.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
+                bool isDesponible = reserve(reservation.id_voiture, reservation.date_prise_en_charge, reservation.date_retour);
+                if(isDesponible)
+                {
+                    var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
 
-                reservation.UserId = user.Id;
-                reservation.date_ajout = DateTime.Now;
-                db.Reservations.Add(reservation);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    reservation.UserId = user.Id;
+                    reservation.date_ajout = DateTime.Now;
+                    db.Reservations.Add(reservation);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                ViewBag.err = Resources.Models.ReservationModel.not_disponible_msg;
             }
 
             ViewBag.UserId = new SelectList(db.Users, "Id", "UserType", reservation.UserId);
@@ -154,5 +160,29 @@ namespace LocationVoiture.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public bool reserve(int id_voiture,DateTime pick_up, DateTime return_date)
+        {
+            var voitures = db.Voitures.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre).ToList();
+            List<Voiture> disponibles = new List<Voiture>();
+            List<Voiture> reserver = new List<Voiture>();
+            bool dispo = false;
+            var reservartions = db.Reservations.Where(x => x.id_voiture == id_voiture).ToList();
+            foreach (Reservation res in reservartions)
+            {
+                bool condition1 = (pick_up < res.date_prise_en_charge && return_date < res.date_prise_en_charge);
+                bool condition2 = (pick_up > res.date_retour && return_date > res.date_retour);
+                if (condition1  || condition2)
+                {
+                }else
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
+
+ 
 }
