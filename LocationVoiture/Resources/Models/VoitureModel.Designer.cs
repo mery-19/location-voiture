@@ -115,6 +115,15 @@ namespace LocationVoiture.Resources.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Registration number.
+        /// </summary>
+        public static string matricul {
+            get {
+                return ResourceManager.GetString("matricul", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of passengers.
         /// </summary>
         public static string nb_passagers {

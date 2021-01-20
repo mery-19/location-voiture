@@ -19,6 +19,8 @@ namespace LocationVoiture.Models
         [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
 
+        [Display(Name = "Description")]
+        [Column(TypeName = "text")]
         public string description { get; set; }
         public DateTime date_ajout { get; set; }
 

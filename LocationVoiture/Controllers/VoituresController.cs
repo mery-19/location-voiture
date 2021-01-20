@@ -11,14 +11,31 @@ using LocationVoiture.Models;
 
 namespace LocationVoiture.Controllers
 {
+    [Authorize]
     public class VoituresController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Voitures
+        [Authorize]
         public ActionResult Index()
         {
             var voitures = db.Voitures.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre);
+            return View(voitures.ToList());
+        }
+
+        [Authorize]
+        public ActionResult All()
+        {
+            var voitures = db.Voitures.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre);
+            return View(voitures.ToList());
+        }
+
+        [Authorize(Roles = "Owner")]
+        public ActionResult MyCars()
+        {
+            var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
+            var voitures = db.Voitures.Where(x => x.UserId == user.Id).Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre);
             return View(voitures.ToList());
         }
 

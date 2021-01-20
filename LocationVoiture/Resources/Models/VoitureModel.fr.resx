@@ -135,6 +135,9 @@
   <data name="marque" xml:space="preserve">
     <value>Marque</value>
   </data>
+  <data name="matricul" xml:space="preserve">
+    <value>Matricule</value>
+  </data>
   <data name="nb_passagers" xml:space="preserve">
     <value>Nombre de passagers</value>
   </data>

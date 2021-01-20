@@ -36,7 +36,7 @@ namespace LocationVoiture.Models
        public virtual DbSet<Reclamation> Reclamations { get; set; }
        public virtual DbSet<Marque> Marques { get; set; }
        public virtual DbSet<Offre> Offres { get; set; }
-       public virtual DbSet<Livraison> Livraisons { get; set; }
+       public virtual DbSet<Paiement> Paiements { get; set; }
        public virtual DbSet<Voiture> Voitures { get; set; }
        public virtual DbSet<Reservation> Reservations { get; set; }
 

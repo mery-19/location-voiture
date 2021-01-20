@@ -11,31 +11,39 @@ namespace LocationVoiture.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Id")]
         public int id_reservation { get; set; }
 
         public string UserId { get; set; }
 
         [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
-
         public int id_voiture { get; set; }
 
         [ForeignKey("id_voiture")]
         public virtual Voiture Voiture { get; set; }
 
-        public int id_livraison { get; set; }
+        [Display(Name = "Paiement")]
+        public int id_paiement { get; set; }
 
-        [ForeignKey("id_livraison")]
-        public virtual Livraison Livraison { get; set; }
+        [ForeignKey("id_paiement")]
+        public virtual Paiement Paiement { get; set; }
 
-        [Display(Name = "Date prise en charge")]
+        [Display(Name = "date_prise", ResourceType =typeof(Resources.Models.ReservationModel))]
         public DateTime date_prise_en_charge { get; set; }
 
-        [Display(Name = "Date de retour")]
+        [Display(Name = "date_retour", ResourceType = typeof(Resources.Models.ReservationModel))]
         public DateTime date_retour { get; set; }
 
-        [Display(Name = "Lien prise en charge")]
+        [Display(Name = "lien_prise", ResourceType = typeof(Resources.Models.ReservationModel))]
         public string lieu_prise_en_charge { get; set; }
+
+        [Display(Name = "remarque", ResourceType = typeof(Resources.Models.ReservationModel))]
+        [Column(TypeName = "text")]
+        public string remarque { get; set; }
+
+        [Display(Name = "date_ajout", ResourceType = typeof(Resources.Models.ReservationModel))]
+        public DateTime date_ajout { get; set; } = DateTime.Now;
 
     }
 }

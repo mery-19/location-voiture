@@ -30,6 +30,9 @@ namespace LocationVoiture.Models
         [ForeignKey("id_offre")]
         public virtual Offre Offre { get; set; }
 
+        [Display(Name = "matricul", ResourceType = typeof(LocationVoiture.Resources.Models.VoitureModel))]
+        public string matricul { get; set; }
+
         [Display(Name = "nb_passagers", ResourceType = typeof(LocationVoiture.Resources.Models.VoitureModel))]
         public int nb_passagers { get; set; }
 

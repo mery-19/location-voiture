@@ -1,0 +1,15 @@
+﻿@model IEnumerable<LocationVoiture.Models.Reservation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@Html.Partial("ListReservations", Model)

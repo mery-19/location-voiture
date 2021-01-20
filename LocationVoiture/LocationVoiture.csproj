@@ -175,6 +175,8 @@
     <Compile Include="Controllers\LocatairesController.cs" />
     <Compile Include="Controllers\MarquesController.cs" />
     <Compile Include="Controllers\OwnerDashboardController.cs" />
+    <Compile Include="Controllers\PaiementsController.cs" />
+    <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\TenantDashboardController.cs" />
     <Compile Include="Controllers\VoituresController.cs" />
     <Compile Include="GestionLanguages.cs" />
@@ -196,7 +198,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Languages.cs" />
-    <Compile Include="Models\LivraisonModel.cs" />
+    <Compile Include="Models\PaiementModel.cs" />
     <Compile Include="Models\Locataire.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MarqueModel.cs" />
@@ -219,6 +221,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MarqueModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\ReservationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservationModel.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Models\ReservationModel.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservationModel.fr.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Models\VoitureModel.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -729,6 +741,20 @@
     <Content Include="Views\Voitures\Index.cshtml" />
     <Content Include="Views\Voitures\ListeVoiture.cshtml" />
     <Content Include="Views\Locataires\Index.cshtml" />
+    <Content Include="Views\Voitures\MyCars.cshtml" />
+    <Content Include="Views\Voitures\All.cshtml" />
+    <Content Include="Views\Reservations\Create.cshtml" />
+    <Content Include="Views\Reservations\Delete.cshtml" />
+    <Content Include="Views\Reservations\Details.cshtml" />
+    <Content Include="Views\Reservations\Edit.cshtml" />
+    <Content Include="Views\Reservations\Index.cshtml" />
+    <Content Include="Views\Paiements\Create.cshtml" />
+    <Content Include="Views\Paiements\Delete.cshtml" />
+    <Content Include="Views\Paiements\Details.cshtml" />
+    <Content Include="Views\Paiements\Edit.cshtml" />
+    <Content Include="Views\Paiements\Index.cshtml" />
+    <Content Include="Views\Reservations\ListReservations.cshtml" />
+    <Content Include="Views\Reservations\Orders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -766,6 +792,14 @@
     <EmbeddedResource Include="Resources\Models\MarqueModel.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MarqueModel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\ReservationModel.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReservationModel.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Models\ReservationModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReservationModel.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\VoitureModel.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

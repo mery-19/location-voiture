@@ -1,0 +1,75 @@
+﻿@model IEnumerable<LocationVoiture.Models.Reservation>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id_reservation)
+            </th>
+            <th>
+                @*            @Html.DisplayNameFor(model => model.Paiement.libele)
+                *@
+                @LocationVoiture.Resources.Models.ReservationModel.paiement
+            </th>
+            <th>
+                @*            @Html.DisplayNameFor(model => model.Voiture.UserId)
+                *@
+                @LocationVoiture.Resources.Models.ReservationModel.owner
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_prise_en_charge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_retour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lieu_prise_en_charge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.remarque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_ajout)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_reservation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Paiement.libele)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Voiture.ApplicationUser.UserName)
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.date_prise_en_charge).ToString("dd/MM/yyyy")
+
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.date_retour).ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lieu_prise_en_charge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.remarque)
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id_reservation }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id_reservation }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id_reservation })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

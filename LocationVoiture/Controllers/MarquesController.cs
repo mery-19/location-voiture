@@ -10,6 +10,7 @@ using LocationVoiture.Models;
 
 namespace LocationVoiture.Controllers
 {
+    [Authorize(Roles = "Owner")]
     public class MarquesController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();

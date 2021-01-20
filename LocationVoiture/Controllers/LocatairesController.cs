@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace LocationVoiture.Controllers
 {
+    [Authorize(Roles = "Owner")]
     public class LocatairesController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();

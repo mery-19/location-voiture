@@ -1,0 +1,10 @@
+﻿
+@model IEnumerable<LocationVoiture.Models.Reservation>
+
+@{
+    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+}
+
+<h2>Orders</h2>
+
+@Html.Partial("ListReservations", Model)
