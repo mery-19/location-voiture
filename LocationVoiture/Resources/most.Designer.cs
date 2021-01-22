@@ -61,7 +61,7 @@ namespace LocationVoiture.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Back to Lis.
+        ///   Looks up a localized string similar to Back to List.
         /// </summary>
         public static string back {
             get {

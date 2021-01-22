@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="back" xml:space="preserve">
-    <value>Back to Lis</value>
+    <value>Back to List</value>
   </data>
   <data name="create" xml:space="preserve">
     <value>Create new</value>
