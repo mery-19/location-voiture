@@ -149,7 +149,14 @@ namespace LocationVoiture.Controllers
         [AllowAnonymous]
         public ActionResult Edit()
         {
-            return View();
+            ApplicationUser user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
+            EditViewModel model = new EditViewModel();
+            model.Email = user.Email;
+            model.UserName = user.UserName;
+            model.UserAdress = user.UserAdress;
+            model.UserPhone = user.PhoneNumber;
+
+            return View(model);
         }
 
         //
