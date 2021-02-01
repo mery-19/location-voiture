@@ -762,12 +762,12 @@
     <Content Include="Views\ApplicationUsers\Edit.cshtml" />
     <Content Include="Views\ApplicationUsers\Index.cshtml" />
     <Content Include="Views\Voitures\Disponible.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Uploads\cars\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

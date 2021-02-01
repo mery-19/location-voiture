@@ -17,6 +17,7 @@ namespace LocationVoiture.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -144,6 +145,52 @@ namespace LocationVoiture.Controllers
             }
         }
 
+        // GET: /Account/Edit
+        [AllowAnonymous]
+        public ActionResult Edit()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Account/Edit
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(EditViewModel model)
+        {
+
+            var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
+            ViewBag.Adress =user.UserAdress;
+            ViewBag.Name = user.UserName;
+            ViewBag.Phone = user.PhoneNumber;
+            //.id_offre = new SelectList(db.Offres, "id_offre", "libele", voiture.id_offre);
+            /*if (user != null)
+            {
+                var result = await SignInManager.PasswordSignInAsync(user.UserName, model.OldPassword,false, shouldLockout: false);
+                // This doesn't count login failures towards account lockout
+                // To enable password failures to trigger account lockout, change to shouldLockout: true
+                switch (result)
+                {
+                    case SignInStatus.Success:
+                        return RedirectToLocal("#");
+                    case SignInStatus.LockedOut:
+                        return View("Lockout");
+                    case SignInStatus.RequiresVerification:
+                        return RedirectToAction("SendCode", new { ReturnUrl = "##", RememberMe = false });
+                    case SignInStatus.Failure:
+                    default:
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View(model);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
+                return View(user);
+            }*/
+            return View(user);
+        }
         //
         // GET: /Account/Register
         [AllowAnonymous]

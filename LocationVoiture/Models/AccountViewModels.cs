@@ -96,6 +96,42 @@ namespace LocationVoiture.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class EditViewModel
+    {
+        [Required]
+        [Display(Name = "Full name")]
+        public string UserName { get; set; }
+        [Required]
+        [Display(Name = "Adress")]
+        public string UserAdress { get; set; }
+
+        [Required]
+        [Display(Name = "Phone number")]
+        public string UserPhone { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Old password")]
+        public string OldPassword { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "New password")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
+    }
+
     public class ResetPasswordViewModel
     {
         [Required]

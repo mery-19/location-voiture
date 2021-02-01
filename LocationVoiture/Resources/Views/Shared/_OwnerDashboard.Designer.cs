@@ -88,7 +88,7 @@ namespace LocationVoiture.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My profil.
+        ///   Looks up a localized string similar to Profil.
         /// </summary>
         public static string profil {
             get {
