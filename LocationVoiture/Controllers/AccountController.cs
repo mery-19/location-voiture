@@ -164,6 +164,7 @@ namespace LocationVoiture.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(EditViewModel model)
         {
+            ViewBag.info = "";
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -173,21 +174,22 @@ namespace LocationVoiture.Controllers
             if (user != null)
             {
                 user.PhoneNumber = model.UserPhone;
-                user.UserName = model.UserName;
                 user.UserAdress = model.UserAdress;
-                user.PasswordHash = UserManager.PasswordHasher.HashPassword(model.Password);
-                var result = await UserManager.UpdateAsync(user);
-                if (!result.Succeeded)
+                PasswordVerificationResult passresult = UserManager.PasswordHasher.VerifyHashedPassword(user.PasswordHash, model.Password);
+                switch (passresult)
                 {
-                    ViewBag.info = "Ton compte est modifié avec succès";
-                    model.OldPassword = "";
-                    model.Password = "";
-                    model.ConfirmPassword= "";
-                    return View(model);
+                    case PasswordVerificationResult.Success:
+                        db.SaveChanges();
+                        ViewBag.info = LocationVoiture.Resources.Views.Account.Edit.Modification;
+                        model.Password = "";
+                        return View(model);
+                    default:
+                        ViewBag.info = LocationVoiture.Resources.Views.Account.Edit.errorPassword;
+                        model.Password = "";
+                        return View(model);
                 }
-
             }
-            ViewBag.info = "Ton compte n'est pas modifié";
+            ViewBag.info = LocationVoiture.Resources.Views.Account.Edit.errorModification;
             return View(model);
         }
         //
@@ -195,7 +197,7 @@ namespace LocationVoiture.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.UserType = new SelectList(new[] { "Tenant", "Owner" });
+            ViewBag.UserType = new SelectList(new[] { LocationVoiture.Resources.Views.Account.Register.tenant, LocationVoiture.Resources.Views.Account.Register.owner });
             return View();
         }
 
@@ -208,12 +210,17 @@ namespace LocationVoiture.Controllers
         {
             if (ModelState.IsValid)
             {
-                ViewBag.UserType = new SelectList(new[] { "Tenant", "Owner" });
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber=model.UserPhone, UserType=model.UserType,UserAdress=model.UserAdress, date_join = DateTime.Now };
+                String type;
+                ViewBag.UserType = new SelectList(new[] { LocationVoiture.Resources.Views.Account.Register.tenant, LocationVoiture.Resources.Views.Account.Register.owner });
+                if (model.UserType == LocationVoiture.Resources.Views.Account.Register.tenant)
+                    type = "Tenant";
+                else
+                    type = "Owner";
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber=model.UserPhone, UserType=type,UserAdress=model.UserAdress, date_join = DateTime.Now };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    UserManager.AddToRole(user.Id, model.UserType);
+                    UserManager.AddToRole(user.Id, type);
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     

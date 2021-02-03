@@ -115,6 +115,15 @@ namespace LocationVoiture.Resources.Views.Account {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Owner.
+        /// </summary>
+        public static string owner {
+            get {
+                return ResourceManager.GetString("owner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -129,6 +138,15 @@ namespace LocationVoiture.Resources.Views.Account {
         public static string register {
             get {
                 return ResourceManager.GetString("register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tenant.
+        /// </summary>
+        public static string tenant {
+            get {
+                return ResourceManager.GetString("tenant", resourceCulture);
             }
         }
         

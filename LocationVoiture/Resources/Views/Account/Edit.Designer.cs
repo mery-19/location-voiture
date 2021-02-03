@@ -70,20 +70,38 @@ namespace LocationVoiture.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Confirm password.
-        /// </summary>
-        public static string ConfirmPassword {
-            get {
-                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Apply.
         /// </summary>
         public static string edit {
             get {
                 return ResourceManager.GetString("edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The account is not modified.
+        /// </summary>
+        public static string errorModification {
+            get {
+                return ResourceManager.GetString("errorModification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect password.
+        /// </summary>
+        public static string errorPassword {
+            get {
+                return ResourceManager.GetString("errorPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account is changed.
+        /// </summary>
+        public static string Modification {
+            get {
+                return ResourceManager.GetString("Modification", resourceCulture);
             }
         }
         
@@ -115,16 +133,7 @@ namespace LocationVoiture.Resources.Views.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Old password.
-        /// </summary>
-        public static string oldPassword {
-            get {
-                return ResourceManager.GetString("oldPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to New password.
+        ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
             get {
