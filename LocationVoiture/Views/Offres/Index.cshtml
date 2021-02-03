@@ -1,0 +1,54 @@
+﻿@model IEnumerable<LocationVoiture.Models.Offre>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.libele)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.taux_remise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_expiration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_ajout)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.libele)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.taux_remise)
+            </td>
+            <td>
+                @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_offre }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_offre }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_offre })
+            </td>
+        </tr>
+    }
+
+</table>

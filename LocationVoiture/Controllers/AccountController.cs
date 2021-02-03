@@ -151,11 +151,9 @@ namespace LocationVoiture.Controllers
         {
             ApplicationUser user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
             EditViewModel model = new EditViewModel();
-            model.Email = user.Email;
             model.UserName = user.UserName;
             model.UserAdress = user.UserAdress;
             model.UserPhone = user.PhoneNumber;
-
             return View(model);
         }
 
@@ -164,39 +162,33 @@ namespace LocationVoiture.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(EditViewModel model)
+        public async Task<ActionResult> Edit(EditViewModel model)
         {
-
-            var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
-            ViewBag.Adress =user.UserAdress;
-            ViewBag.Name = user.UserName;
-            ViewBag.Phone = user.PhoneNumber;
-            //.id_offre = new SelectList(db.Offres, "id_offre", "libele", voiture.id_offre);
-            /*if (user != null)
+            if (!ModelState.IsValid)
             {
-                var result = await SignInManager.PasswordSignInAsync(user.UserName, model.OldPassword,false, shouldLockout: false);
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, change to shouldLockout: true
-                switch (result)
-                {
-                    case SignInStatus.Success:
-                        return RedirectToLocal("#");
-                    case SignInStatus.LockedOut:
-                        return View("Lockout");
-                    case SignInStatus.RequiresVerification:
-                        return RedirectToAction("SendCode", new { ReturnUrl = "##", RememberMe = false });
-                    case SignInStatus.Failure:
-                    default:
-                        ModelState.AddModelError("", "Invalid login attempt.");
-                        return View(model);
-                }
+                return View(model);
             }
-            else
+            var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
+            
+            if (user != null)
             {
-                ModelState.AddModelError("", "Invalid login attempt.");
-                return View(user);
-            }*/
-            return View(user);
+                user.PhoneNumber = model.UserPhone;
+                user.UserName = model.UserName;
+                user.UserAdress = model.UserAdress;
+                user.PasswordHash = UserManager.PasswordHasher.HashPassword(model.Password);
+                var result = await UserManager.UpdateAsync(user);
+                if (!result.Succeeded)
+                {
+                    ViewBag.info = "Ton compte est modifié avec succès";
+                    model.OldPassword = "";
+                    model.Password = "";
+                    model.ConfirmPassword= "";
+                    return View(model);
+                }
+
+            }
+            ViewBag.info = "Ton compte n'est pas modifié";
+            return View(model);
         }
         //
         // GET: /Account/Register

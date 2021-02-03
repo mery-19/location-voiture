@@ -124,7 +124,7 @@
     <value>Se connecter</value>
   </data>
   <data name="msg" xml:space="preserve">
-    <value>Connecter vous avec votre Email et mot de passe</value>
+    <value>Connecter vous avec votre email et mot de passe</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Mot de passe</value>
@@ -133,9 +133,9 @@
     <value>Créer nouveau compte.</value>
   </data>
   <data name="remember" xml:space="preserve">
-    <value>se souvenir de moi?</value>
+    <value>Se souvenir de moi ?</value>
   </data>
   <data name="welcomeDear" xml:space="preserve">
-    <value>Bienvenue Chére client</value>
+    <value>Bienvenue Cher Client</value>
   </data>
 </root>

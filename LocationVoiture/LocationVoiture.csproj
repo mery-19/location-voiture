@@ -175,6 +175,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\LocatairesController.cs" />
     <Compile Include="Controllers\MarquesController.cs" />
+    <Compile Include="Controllers\OffresController.cs" />
     <Compile Include="Controllers\OwnerDashboardController.cs" />
     <Compile Include="Controllers\PaiementsController.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />
@@ -194,6 +195,10 @@
     <Compile Include="Migrations\202101151745393_AddColumnToUser-Type.cs" />
     <Compile Include="Migrations\202101151745393_AddColumnToUser-Type.Designer.cs">
       <DependentUpon>202101151745393_AddColumnToUser-Type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102030045208_addForeignKeyToOffer.cs" />
+    <Compile Include="Migrations\202102030045208_addForeignKeyToOffer.Designer.cs">
+      <DependentUpon>202102030045208_addForeignKeyToOffer.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -258,6 +263,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Script.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Views\Account\Edit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Account\Edit.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.fr.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Account\Login.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -267,6 +282,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Account\Register.fr.Designer.cs">
+      <DependentUpon>Register.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Views\Account\Register.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Register.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\Shared\_Layout.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -763,6 +788,11 @@
     <Content Include="Views\ApplicationUsers\Index.cshtml" />
     <Content Include="Views\Voitures\Disponible.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Offres\Create.cshtml" />
+    <Content Include="Views\Offres\Delete.cshtml" />
+    <Content Include="Views\Offres\Details.cshtml" />
+    <Content Include="Views\Offres\Edit.cshtml" />
+    <Content Include="Views\Offres\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -786,6 +816,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101151745393_AddColumnToUser-Type.resx">
       <DependentUpon>202101151745393_AddColumnToUser-Type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102030045208_addForeignKeyToOffer.resx">
+      <DependentUpon>202102030045208_addForeignKeyToOffer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Locataire.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -829,6 +862,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Script.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Account\Edit.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Edit.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Account\Edit.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Edit.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Account\Login.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Login.fr.Designer.cs</LastGenOutput>
@@ -836,6 +877,14 @@
     <EmbeddedResource Include="Resources\Views\Account\Login.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Login.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Account\Register.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Register.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Views\Account\Register.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Register.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Views\Shared\_Layout.fr.resx" />
     <EmbeddedResource Include="Resources\Views\Shared\_Layout.resx">

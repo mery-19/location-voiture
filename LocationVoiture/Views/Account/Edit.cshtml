@@ -12,18 +12,17 @@
             <div class="col-md-6 mx-auto">
                 <div class="card">
                     <div class="card-body">
-                        @Html.ValidationSummary("", new { @class = "text-danger" })
                         <!--<div class="row">
-                        <div class="col">
-                            <center>
-                                <img style="width:100px" src="imgs/generaluser.png" />
-                            </center>
-                        </div>
-                        </div>-->
+                            <div class="col">
+                                <center>
+                                    <img style="width:100px" src="imgs/generaluser.png" />
+                                </center>
+                            </div>
+                            </div>-->
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <h4 style="color:#3692EB">Edit your personal information</h4>
+                                    <h4 style="color:#3692EB">@LocationVoiture.Resources.Views.Account.Edit.msg</h4>
                                 </center>
                             </div>
                         </div>
@@ -36,7 +35,7 @@
                             <div class="col">
                                 <center>
                                     @Html.LabelFor(m => m.UserName)
-                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control"})
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
                                 </center>
                             </div>
                         </div>
@@ -44,15 +43,15 @@
                             <div class="col">
                                 <center>
                                     @Html.LabelFor(m => m.UserPhone)
-                                    @Html.TextBoxFor(m => m.UserPhone, new { @class = "form-control"})
-                                 </center>
+                                    @Html.TextBoxFor(m => m.UserPhone, new { @class = "form-control" })
+                                </center>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <center>
                                     @Html.LabelFor(m => m.UserAdress)
-                                    @Html.TextAreaFor(m => m.UserAdress, new { @class = "form-control"})
+                                    @Html.TextAreaFor(m => m.UserAdress, new { @class = "form-control" })
                                 </center>
                             </div>
                         </div>
@@ -61,7 +60,7 @@
                                 <center>
                                     @Html.LabelFor(m => m.OldPassword)
                                     @Html.PasswordFor(m => m.OldPassword, new { @class = "form-control" })
-                                 </center>
+                                </center>
                             </div>
                         </div>
 
@@ -75,6 +74,7 @@
                                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                             </div>
                         </div>
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
                         <div class="row">
                             <div class="col">
                                 <hr>
@@ -84,7 +84,7 @@
                             <div class="col-md-8 mx-auto">
                                 <center>
                                     <div class="form-group">
-                                        <input type="submit" class="btn btn-primary" value="Apply the changes" style="background-color: #3692EB" />
+                                        <input type="submit" class="btn btn-primary" value=@LocationVoiture.Resources.Views.Account.Edit.edit style="background-color: #3692EB" />
                                     </div>
                                 </center>
                             </div>

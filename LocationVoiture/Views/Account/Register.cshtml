@@ -13,18 +13,17 @@
             <div class="col-md-6 mx-auto">
                 <div class="card">
                     <div class="card-body">
-                        @Html.ValidationSummary("", new { @class = "text-danger" })
-                        <!--<div class="row">
-                            <div class="col">
-                                <center>
-                                    <img style="width:100px" src="imgs/generaluser.png" />
-                                </center>
-                            </div>
-                        </div>-->
+                    <!--<div class="row">
+                        <div class="col">
+                            <center>
+                                <img style="width:100px" src="imgs/generaluser.png" />
+                            </center>
+                        </div>
+                    </div>-->
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <h4 style="color:#3692EB">Create an account</h4>
+                                    <h4 style="color:#3692EB">@LocationVoiture.Resources.Views.Account.Register.msg</h4>
                                 </center>
                             </div>
                         </div>
@@ -56,11 +55,11 @@
                         <div class="row">
                             <div class="col-md-6">
                                 @Html.LabelFor(m => m.UserType)
-                                @Html.DropDownList("UserType", null, new { @class = "form-control"})
+                                @Html.DropDownList("UserType", null, new { @class = "form-control" })
                             </div>
-                          
+
                         </div>
-                        
+
                         <div class="row">
                             <div class="col-md-6">
                                 @Html.LabelFor(m => m.Password)
@@ -71,6 +70,7 @@
                                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                             </div>
                         </div>
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
                         <div class="row">
                             <div class="col">
                                 <hr>
@@ -80,7 +80,7 @@
                             <div class="col-md-8 mx-auto">
                                 <center>
                                     <div class="form-group">
-                                        <input type="submit" class="btn btn-primary" value="Register" style="background-color: #3692EB" />
+                                        <input type="submit" class="btn btn-primary" value=@LocationVoiture.Resources.Views.Account.Register.register style="background-color: #3692EB" />
                                     </div>
                                 </center>
                             </div>

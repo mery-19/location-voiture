@@ -460,7 +460,6 @@ C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\bin\Microsoft
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.csprojAssemblyReference.cache
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.InitialCreate.resources
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.AddColumnToUserType.resources
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Models.Locataire.resources
@@ -495,3 +494,9 @@ C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\fr\
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.csproj.CopyComplete
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.dll
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.pdb
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Account.Register.resources
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Account.Register.fr.resources
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Account.Edit.resources
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Account.Edit.fr.resources
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.csprojAssemblyReference.cache
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.addForeignKeyToOffer.resources

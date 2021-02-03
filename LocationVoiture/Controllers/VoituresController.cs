@@ -97,9 +97,11 @@ namespace LocationVoiture.Controllers
         // GET: Voitures/Create
         public ActionResult Create()
         {
+            string name = System.Web.HttpContext.Current.User.Identity.Name;
+            ApplicationUser user = db.Users.Where(x => x.UserName.Equals(name)).FirstOrDefault();
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele");
-            ViewBag.id_offre = new SelectList(db.Offres, "id_offre", "libele");
+            ViewBag.id_offre = new SelectList(db.Offres.Where(x => x.UserId == user.Id & x.date_expiration > DateTime.Now), "id_offre", "libele");
             return View();
         }
 
@@ -123,7 +125,6 @@ namespace LocationVoiture.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", voiture.UserId);
             ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", voiture.id_marque);
             ViewBag.id_offre = new SelectList(db.Offres, "id_offre", "libele", voiture.id_offre);
@@ -142,9 +143,11 @@ namespace LocationVoiture.Controllers
             {
                 return HttpNotFound();
             }
+            string name = System.Web.HttpContext.Current.User.Identity.Name;
+            ApplicationUser user = db.Users.Where(x => x.UserName.Equals(name)).FirstOrDefault();
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", voiture.UserId);
             ViewBag.id_marque = new SelectList(db.Marques, "id_marque", "libele", voiture.id_marque);
-            ViewBag.id_offre = new SelectList(db.Offres, "id_offre", "libele", voiture.id_offre);
+            ViewBag.id_offre = new SelectList(db.Offres.Where(x => x.UserId == user.Id&x.date_expiration > DateTime.Now), "id_offre", "libele", voiture.id_offre);
             return View(voiture);
         }
 

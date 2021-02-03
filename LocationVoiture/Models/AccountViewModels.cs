@@ -65,33 +65,33 @@ namespace LocationVoiture.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "Full name")]
+        [Display(Name = "name", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
         public string UserName { get; set; }
         [Required]
-        [Display(Name = "Adress")]
+        [Display(Name = "adress", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
         public string UserAdress { get; set; }
 
         [Required]
-        [Display(Name = "Type")]
+        [Display(Name = "type", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
         public string UserType { get; set; }
 
         [Required]
-        [Display(Name = "Phone number")]
+        [Display(Name = "number", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
         public string UserPhone { get; set; }
 
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "email", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
         public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Password", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "confirmPassword", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
@@ -99,35 +99,31 @@ namespace LocationVoiture.Models
     public class EditViewModel
     {
         [Required]
-        [Display(Name = "Full name")]
+        [Display(Name = "name", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Edit))]
         public string UserName { get; set; }
         [Required]
-        [Display(Name = "Adress")]
+        [Display(Name = "adress",ResourceType = typeof(LocationVoiture.Resources.Views.Account.Edit))]
         public string UserAdress { get; set; }
 
         [Required]
-        [Display(Name = "Phone number")]
+        [Display(Name = "number", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Edit))]
         public string UserPhone { get; set; }
 
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Old password")]
+        [Display(Name = "oldPassword",ResourceType = typeof(LocationVoiture.Resources.Views.Account.Edit))]
         public string OldPassword { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "Password", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Edit))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "ConfirmPassword", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Edit))]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
