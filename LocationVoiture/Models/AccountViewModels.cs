@@ -116,7 +116,7 @@ namespace LocationVoiture.Models
         public string Password { get; set; }
 
     }
-
+ 
     public class ResetPasswordViewModel
     {
         [Required]

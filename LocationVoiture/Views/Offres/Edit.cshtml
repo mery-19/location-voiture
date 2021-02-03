@@ -37,7 +37,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.date_expiration, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.date_expiration, new { htmlAttributes = new { @Value = @Model.date_expiration.ToString("yyyy-MM-dd"),@class = "form-control", @type = "date" } })
+                @Html.EditorFor(model => model.date_expiration, new { htmlAttributes = new { @Value = @Model.date_expiration.ToString("yyyy-MM-dd"),@class = "form-control",@type="date"} })
                 @Html.ValidationMessageFor(model => model.date_expiration, "", new { @class = "text-danger" })
             </div>
         </div>

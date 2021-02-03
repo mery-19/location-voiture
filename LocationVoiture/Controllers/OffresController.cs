@@ -77,7 +77,7 @@ namespace LocationVoiture.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserId = new SelectList(db.Users, "Id", "UserType", offre.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", offre.UserId);
             return View(offre);
         }
 
@@ -86,15 +86,19 @@ namespace LocationVoiture.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_offre,UserId,libele,taux_remise,date_expiration,date_ajout")] Offre offre)
+        public ActionResult Edit(Offre offre)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(offre).State = EntityState.Modified;
+                Offre offreChange = db.Offres.Find(offre.id_offre);
+                offreChange.libele = offre.libele;
+                offreChange.taux_remise = offre.taux_remise;
+                offreChange.date_expiration = Convert.ToDateTime(offre.date_expiration);
+                db.Entry(offreChange).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserId = new SelectList(db.Users, "Id", "UserType", offre.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", offre.UserId);
             return View(offre);
         }
 

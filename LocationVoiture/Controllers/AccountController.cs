@@ -238,7 +238,7 @@ namespace LocationVoiture.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
+       
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
