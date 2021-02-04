@@ -69,27 +69,27 @@ $(document).ready(function () {
     });
 
     $(function () {
-        $("a.delete-link-voiture").click(function () {
+        $("a.delete-link-offre").click(function () {
 
             var token = $("[name='__RequestVerificationToken']").val();
 
             console.log(token);
             var checkstr;
             if (Cookies.get('culture') === "fr") {
-                checkstr = confirm('Voullez vous vraiment supprimer cette Voiture?');
+                checkstr = confirm('Voullez vous vraiment supprimer cette Offre?');
 
             } else {
-                checkstr = confirm('are you sure you want to delete this?');
+                checkstr = confirm('Are you sure you want to delete this?');
             }
             if (checkstr == true) {
                 $.ajax({
-                    url: '/Voitures/Delete/' + $(".delete-link-voiture").attr('data-delete-id'),
+                    url: '/Offres/Delete/' + $(".delete-link-offre").attr('data-delete-id'),
                     type: "POST",
                     data: {
                         __RequestVerificationToken: token,
                     },
                     success: function () {
-                        window.location.replace("https://localhost:44333/Voitures/mycars");
+                        window.location.replace("https://localhost:44333/Offres/index");
                     }
                 });
             }

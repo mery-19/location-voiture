@@ -1,54 +1,71 @@
 ﻿@model IEnumerable<LocationVoiture.Models.Offre>
 
 @{
-    ViewBag.Title = "Index";
+    //ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
 
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create", "Offres")" class="text-success">
+        @LocationVoiture.Resources.Views.Offres.Index.createNew
+    </a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.libele)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.taux_remise)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.date_expiration)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.date_ajout)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
+<table class="table table-striped">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.libele)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.taux_remise)
-            </td>
-            <td>
-                @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
-            </td>
-            <td>
-                @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id_offre }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id_offre }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id_offre })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.libele)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.taux_remise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_expiration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_ajout)
+            </th>
+            <th></th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.libele)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.taux_remise)
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Offres", new { id = item.id_offre  })" class="text-success">
+                        <i class="material-icons icon " style="color:yellow">
+                            edit
+                        </i>
+                    </a>
+                    <a href="@Url.Action("Details", "Offres", new { id = item.id_offre  })" class="text-success">
+                        <i class="material-icons icon ">
+                            visibility
+                        </i>
+                    </a>
+                    <a data-delete-id="@item.id_offre" class="text-danger delete-link-offre pointer">
+                        <i class="material-icons icon ">
+                            delete
+                        </i>
+                    </a>
+                    @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>

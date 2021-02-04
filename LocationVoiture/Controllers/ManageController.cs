@@ -11,7 +11,7 @@ using LocationVoiture.Models;
 namespace LocationVoiture.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -238,7 +238,12 @@ namespace LocationVoiture.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                ViewBag.info =LocationVoiture.Resources.Views.Manage.ChangePassword.info;
+                model.ConfirmPassword = "";
+                model.ConfirmPassword = "";
+                model.ConfirmPassword = "";
+                return View(model);
+                //return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
             }
             AddErrors(result);
             return View(model);

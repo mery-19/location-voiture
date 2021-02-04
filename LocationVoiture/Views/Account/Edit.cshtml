@@ -1,7 +1,16 @@
 ﻿@model LocationVoiture.Models.EditViewModel
 
-@{
+@if (User.IsInRole("Tenant"))
+{
     Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+}
+else if (User.IsInRole("Owner"))
+{
+    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+}
+else if (User.IsInRole("Admin"))
+{
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
 }
 
 @using (Html.BeginForm("Edit", "Account", FormMethod.Post))
@@ -43,7 +52,7 @@
                             <div class="col">
                                 <center>
                                     @Html.LabelFor(m => m.UserPhone)
-                                    @Html.TextBoxFor(m => m.UserPhone, new { @class = "form-control"  })
+                                    @Html.TextBoxFor(m => m.UserPhone, new { @class = "form-control" })
                                 </center>
                             </div>
                         </div>
@@ -64,9 +73,9 @@
                             </div>
                         </div>
 
-                       <div>
-                               <p style="color:red">@ViewBag.info</p>
-                       </div>
+                        <div>
+                            <p style="color:red">@ViewBag.info</p>
+                        </div>
                         @Html.ValidationSummary("", new { @class = "text-danger" })
                         <div class="row">
                             <div class="col">
@@ -80,7 +89,7 @@
                                         <input type="submit" class="btn btn-primary" value=@LocationVoiture.Resources.Views.Account.Edit.edit style="background-color: #3692EB" />
                                     </div>
                                     <div class="form-group">
-                                        <a href="~/Manage/ChangePassword">Change password</a>
+                                        <a href="~/Manage/ChangePassword">@LocationVoiture.Resources.Views.Account.Edit.changePasseword</a>
                                     </div>
                                 </center>
                             </div>

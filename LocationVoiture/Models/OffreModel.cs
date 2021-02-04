@@ -19,15 +19,16 @@ namespace LocationVoiture.Models
 
         public virtual ApplicationUser ApplicationUser { get; set; }
 
-        [Display(Name = "Libele")]
+        [Display(Name = "libele", ResourceType = typeof(LocationVoiture.Resources.Views.Offres.Index))]
         public string libele { get; set; }
 
-        [Display(Name = "Taux de remise")]
+        [Display(Name = "tauxDeRemise", ResourceType = typeof(LocationVoiture.Resources.Views.Offres.Index))]
         public int taux_remise { get; set; }
 
-        [Display(Name = "Date d'éxpiration")]
+        [Display(Name = "dateDexpiration", ResourceType = typeof(LocationVoiture.Resources.Views.Offres.Index))]
         public DateTime date_expiration { get; set; }
 
+        [Display(Name = "dateAjout", ResourceType = typeof(LocationVoiture.Resources.Views.Offres.Index))]
         public DateTime date_ajout { get; set; }
 
         public virtual ICollection<Voiture> Voitures { get; set; }

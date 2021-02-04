@@ -498,5 +498,8 @@ C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\Loc
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Account.Register.fr.resources
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Account.Edit.resources
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Account.Edit.fr.resources
-C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.csprojAssemblyReference.cache
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.addForeignKeyToOffer.resources
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Manage.ChangePassword.resources
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Manage.ChangePassword.fr.resources
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Offres.Index.resources
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Offres.Index.fr.resources

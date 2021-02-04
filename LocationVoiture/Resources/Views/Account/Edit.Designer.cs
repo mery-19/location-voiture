@@ -70,6 +70,15 @@ namespace LocationVoiture.Resources.Views.Account {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string changePasseword {
+            get {
+                return ResourceManager.GetString("changePasseword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Apply.
         /// </summary>
         public static string edit {

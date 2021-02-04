@@ -10,7 +10,7 @@ using LocationVoiture.Models;
 
 namespace LocationVoiture.Controllers
 {
-    public class OffresController : Controller
+    public class OffresController :  BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

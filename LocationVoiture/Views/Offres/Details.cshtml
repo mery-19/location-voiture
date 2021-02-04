@@ -1,51 +1,73 @@
 ﻿@model LocationVoiture.Models.Offre
 
 @{
-    ViewBag.Title = "Details";
+    //ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Offre</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.libele)
-        </dt>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <center>
+                                @Html.LabelFor(model => model.libele)
+                                @Html.EditorFor(model => model.libele, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            </center>
+                        </div>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.libele)
-        </dd>
+                    <div class="row">
+                        <div class="col">
+                            <center>
+                                @Html.LabelFor(model => model.taux_remise)
+                                @Html.EditorFor(model => model.taux_remise, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <center>
+                                @Html.LabelFor(model => model.date_ajout)
+                                @Html.EditorFor(model => model.date_ajout, new { htmlAttributes = new { @Value = @Model.date_ajout.ToString("yyyy-MM-dd"), @class = "form-control", @type = "date", @readonly = "readonly" } })
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <center>
+                                @Html.LabelFor(model => model.date_expiration)
+                                @Html.EditorFor(model => model.date_expiration, new { htmlAttributes = new { @Value = @Model.date_expiration.ToString("yyyy-MM-dd"), @class = "form-control", @type = "date", @readonly = "readonly" } })
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <center>
+                                <div class="form-group">
+                                    <a href="@Url.Action("Edit", "Offres", new { id = Model.id_offre  })" class="text-success">
+                                        @LocationVoiture.Resources.Views.Offres.Index.edit
+                                    </a>
+                                </div>
+                                <div class="form-group">
+                                    <a href="~/Offres/Index" class="text-success">
+                                        @LocationVoiture.Resources.Views.Offres.Index.backToList
+                                    </a>
+                                </div>
+                            </center>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.taux_remise)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.taux_remise)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.date_expiration)
-        </dt>
-
-        <dd>
-            @Convert.ToDateTime(Model.date_expiration).ToString("dd/MM/yyyy")
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.date_ajout)
-        </dt>
-
-        <dd>
-            @Convert.ToDateTime(Model.date_ajout).ToString("dd/MM/yyyy")
-        </dd>
-
-    </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id_offre }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

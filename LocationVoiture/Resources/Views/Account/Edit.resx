@@ -120,6 +120,9 @@
   <data name="adress" xml:space="preserve">
     <value>Adress</value>
   </data>
+  <data name="changePasseword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
   <data name="edit" xml:space="preserve">
     <value>Apply</value>
   </data>
