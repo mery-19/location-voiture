@@ -10,7 +10,7 @@ using LocationVoiture.Models;
 
 namespace LocationVoiture.Controllers
 {
-    public class ApplicationUsersController : Controller
+    public class ApplicationUsersController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
@@ -50,6 +50,7 @@ namespace LocationVoiture.Controllers
         {
             if (ModelState.IsValid)
             {
+                applicationUser.date_join = DateTime.Now;
                 db.Users.Add(applicationUser);
                 db.SaveChanges();
                 return RedirectToAction("Index");

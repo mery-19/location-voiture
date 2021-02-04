@@ -96,6 +96,34 @@ $(document).ready(function () {
         }
         );
     });
+    $(function () {
+        $("a.delete-link-user").click(function () {
+
+            var token = $("[name='__RequestVerificationToken']").val();
+
+            console.log(token);
+            var checkstr;
+            if (Cookies.get('culture') === "fr") {
+                checkstr = confirm('Voullez vous vraiment supprimer cet utilisateur?');
+
+            } else {
+                checkstr = confirm('Are you sure you want to delete this?');
+            }
+            if (checkstr == true) {
+                $.ajax({
+                    url: '/ApplicationUsers/Delete/' + $(".delete-link-user").attr('data-delete-id'),
+                    type: "POST",
+                    data: {
+                        __RequestVerificationToken: token,
+                    },
+                    success: function () {
+                        window.location.replace("https://localhost:44333/ApplicationUsers/Index");
+                    }
+                });
+            }
+        }
+        );
+    });
 
     $(function () {
         $("a.delete-link-reserve").click(function () {
