@@ -121,10 +121,19 @@
     <value>My cars</value>
   </data>
   <data name="dashboard" xml:space="preserve">
-    <value>Dashboard</value>
+    <value>History</value>
+  </data>
+  <data name="le" xml:space="preserve">
+    <value>on</value>
   </data>
   <data name="model" xml:space="preserve">
     <value>Models</value>
+  </data>
+  <data name="nothing" xml:space="preserve">
+    <value>No data to display</value>
+  </data>
+  <data name="notification" xml:space="preserve">
+    <value>This car is controlled by</value>
   </data>
   <data name="profil" xml:space="preserve">
     <value>Profil</value>

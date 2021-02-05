@@ -97,6 +97,15 @@ namespace LocationVoiture.Resources.Views.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No data to display.
+        /// </summary>
+        public static string nothing {
+            get {
+                return ResourceManager.GetString("nothing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You booked this car from the owner.
         /// </summary>
         public static string notification {

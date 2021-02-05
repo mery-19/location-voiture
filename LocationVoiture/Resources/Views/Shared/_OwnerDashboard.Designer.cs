@@ -70,11 +70,20 @@ namespace LocationVoiture.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dashboard.
+        ///   Looks up a localized string similar to History.
         /// </summary>
         public static string dashboard {
             get {
                 return ResourceManager.GetString("dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to on.
+        /// </summary>
+        public static string le {
+            get {
+                return ResourceManager.GetString("le", resourceCulture);
             }
         }
         
@@ -84,6 +93,24 @@ namespace LocationVoiture.Resources.Views.Shared {
         public static string model {
             get {
                 return ResourceManager.GetString("model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No data to display.
+        /// </summary>
+        public static string nothing {
+            get {
+                return ResourceManager.GetString("nothing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This car is controlled by.
+        /// </summary>
+        public static string notification {
+            get {
+                return ResourceManager.GetString("notification", resourceCulture);
             }
         }
         
