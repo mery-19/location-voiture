@@ -3,9 +3,188 @@
 }
 
 <div class="container mt-3">
-    <h2>dashboard</h2>
+    <h2>Admin dashbord</h2>
+    <div class="row d-flex m-5">
 
-    <p>
+        <div class="col-md-6 col-12">
+            <div class="card card_info h-100">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        Nombre de Locataires inscrits (2021)
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">
 
-    </p>
+                        <div id="chart_container_tenant">
+                            <canvas id="bar_chart_tenant">
+                            </canvas>
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="card card_info h-100">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        NOMBRE DES RESERVATION EFFECTUE
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">
+
+                        <div id="chart_container_res">
+                            <canvas id="bar_chart_res">
+                            </canvas>
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row d-flex m-5">
+
+        <div class="col-md-6 col-12">
+            <div class="card card_info h-100">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        Nombre des voiture ajouter
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">
+
+                        <div id="chart_container_cars">
+                            <canvas id="bar_chart_cars">
+                            </canvas>
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
 </div>
+
+
+    @section chart{
+        <script>
+            var tenants = @Html.Raw(Json.Encode(ViewBag.tenants));
+            var owners = @Html.Raw(Json.Encode(ViewBag.owners));
+            var cars = @Html.Raw(Json.Encode(ViewBag.cars));
+            var res = @Html.Raw(Json.Encode(ViewBag.res));
+            var months = @Html.Raw(Json.Encode(ViewBag.months));
+
+            @*-- START -- chart for locataire*@
+
+            var ctx = $("#bar_chart_tenant");
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [
+                        {
+                            label: "Locataires",
+                            data: tenants,
+                            backgroundColor: 'rgb(40, 62, 118)'
+                        }, {
+                            label: "Propriéraire",
+                            data: owners,
+                        }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.month"
+                            }
+                        }]
+                    }
+                }
+            });
+            @* -- END --chart for locataire *@
+
+
+
+            @* --START --chart for voiture *@
+            var ctx1 = $("#bar_chart_cars");
+            var myChart = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: "Cars",
+                        data: cars,
+                        backgroundColor: 'rgb(40, 62, 118)'
+                    },]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString:"@LocationVoiture.Resources.Views.Shared.Dashboard.month"
+                            }
+                        }]
+                    }
+                }
+            });
+            @* --END --chart for voiture *@
+
+
+            @* --START --chart for reservation *@
+            var ctx2 = $("#bar_chart_res");
+            var myChart = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Reservation',
+                        backgroundColor: 'rgb(40, 62, 118)',
+                        data: res,
+                    },]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'months'
+                            }
+                        }]
+                    }
+                }
+            });
+            @* --END --chart for reservation *@
+
+
+        </script>
+    }

@@ -10,7 +10,7 @@
         <div class="sidebar">
             <ul class="navbar-nav mt-3">
                 <li class="nav-item">
-                    <a href="~/Dashboard" class="nav-link px-2">
+                    <a href="~/AdminDashboard" class="nav-link px-2">
                         <i class="material-icons icon">
                             dashboard
                         </i>
@@ -70,3 +70,7 @@
         </main>
     </div>
 </div>
+
+@section chartSection{
+    @RenderSection("chart", required: false)
+}

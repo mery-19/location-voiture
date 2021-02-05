@@ -1,153 +1,209 @@
-﻿@model LocationVoiture.Models.HistoryOwner
-@{
+﻿@{
     Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
 }
 
-<div class="container">
-    <div class="title ml-5">
-        <h1>@LocationVoiture.Resources.Views.Shared._OwnerDashboard.history</h1>
-    </div>
-    <hr />
-    <h4>@LocationVoiture.Resources.Views.Offres.Index.voitureDispo</h4>
-    @if (Model.reservations.Any())
-    {
 
-        <div class="row justify-content-center">
-            <div class="col-10">
-                <ul id="listPage" class="text-center" style="list-style-type:none;">
+<div class="container mt-3">
+    <h2>Admin dashbord</h2>
+    <div class="row d-flex m-5">
 
-                    @foreach (var item in Model.reservations)
-                    {
-                        if (item != null)
-                        {
-                            <li style="min-height:200px;">
+        <div class="col-md-6 col-12">
+            <div class="card card_info h-100">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        @LocationVoiture.Resources.Views.Shared.Dashboard.nb_loc
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">
 
-
-                                <div class="card row flex-row flex-wrap m-3 h-100">
-                                    <div class="card-header border-0" style="min-height: 200px; width: 250px;background-color:white;
-">
-                                        <img src="~/Uploads/cars/@Html.DisplayFor(model => item.Voiture.photo)" alt="" class="h-100" style=" width:200px;">
-                                    </div>
-                                    <div class="card-block my-3" style="        margin-left: 100px;">
-                                        <center style="margin-top: 50px;margin-bottom:50px;">
-                                            <p class="card-text" style="width: 400px;">
-                                                @LocationVoiture.Resources.Views.Shared._OwnerDashboard.notification<span class="font-weight-bold"> @Html.DisplayFor(modelItem => item.Voiture.ApplicationUser.UserName)</span>,  @LocationVoiture.Resources.Views.Shared._OwnerDashboard.le <span class="font-weight-bold"> @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")</span>
-                                            </p>
-                                            <a href="@Url.Action("Details", "Reservations", new { id = item.id_reservation })" class="text-success">
-                                                @LocationVoiture.Resources.Views.Shared._TenantDashboard.details
-                                            </a>
-                                        </center>
-                                    </div>
-                                </div>
-                            </li>
-                        }
-                    }
-
-                </ul>
-
-            </div>
-
-        </div>
-    }
-
-    else
-    {
-        <center><span class="font-weight-bold;"> @LocationVoiture.Resources.Views.Shared._OwnerDashboard.nothing</span></center>
-
-    }
-    <hr />
-    <h4>@LocationVoiture.Resources.Views.Offres.Index.offreDispo</h4>
-    @if (Model.offresDisponibles.Any())
-    {
-
-        <div class="row justify-content-center">
-            <div class="col-5">
-                <ul class="text-center" style="list-style-type:none;">
-
-                    @foreach (var item in Model.offresDisponibles)
-                    {
-                        if (item != null)
-                        {
-                    <li>
-                        <div class="card row flex-row flex-wrap m-3 h-100">
-                            <div class="card-block my-3">
-                                <p class="card-text" style="width: 350px;">
-                                    @LocationVoiture.Resources.Views.Offres.Index.tauxDeRemise :
-                                    <span class="text-success font-weight-bold">
-                                        @Html.DisplayFor(modelItem => item.taux_remise)%
-                                    </span><br />
-                                    <span>
-                                        @LocationVoiture.Resources.Views.Offres.Index.dateDexpiration:
-                                        @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
-                                    </span>
-                                </p>
-                                    <a href="@Url.Action("Details", "Offres", new { id = item.id_offre })" class="text-success">
-                                        @LocationVoiture.Resources.Views.Shared._TenantDashboard.details
-                                    </a>
-                            </div>
-                            </div>
-                    </li>
-                        }
-                    }
-
-                </ul>
-
-            </div>
-
-        </div>
-    }
-
-    else
-    {
-        <center><span class="font-weight-bold;"> @LocationVoiture.Resources.Views.Shared._OwnerDashboard.nothing</span></center>
-
-    }
-    <hr/>
-    <h4>@LocationVoiture.Resources.Views.Offres.Index.offreExpire</h4>
-    @if (Model.offresExpires.Any())
-    {
-
-<div class="row justify-content-center">
-    <div class="col-5">
-        <ul class="text-center" style="list-style-type:none;">
-
-            @foreach (var item in Model.offresExpires)
-            {
-                if (item != null)
-                {
-                    <li>
-                        <div class="card row flex-row flex-wrap m-3 h-100">
-                            <div class="card-block my-3">
-                                <p class="card-text" style="width: 350px;">
-                                    @LocationVoiture.Resources.Views.Offres.Index.tauxDeRemise :
-                                    <span class="text-success font-weight-bold">
-                                        @Html.DisplayFor(modelItem => item.taux_remise)%
-                                    </span><br />
-                                    <span>
-                                        @LocationVoiture.Resources.Views.Offres.Index.dateDexpiration:
-                                        @Convert.ToDateTime(item.date_expiration).ToString("dd/MM/yyyy")
-                                    </span>
-                                </p>
-                                <a href="@Url.Action("Details", "Offres", new { id = item.id_offre })" class="text-success">
-                                    @LocationVoiture.Resources.Views.Shared._TenantDashboard.details
-                                </a>
-                            </div>
+                        <div id="chart_container_tenant">
+                            <canvas id="bar_chart_tenant">
+                            </canvas>
                         </div>
-                    </li>
-                }
-            }
+                    </p>
 
-        </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="card card_info h-100">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        @LocationVoiture.Resources.Views.Shared.Dashboard.nb_res
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">
 
+                        <div id="chart_container_res">
+                            <canvas id="bar_chart_res">
+                            </canvas>
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+        </div>
     </div>
 
-</div>
-    }
+    <div class="row d-flex m-5">
 
-    else
-    {
-        <center><span class="font-weight-bold;"> @LocationVoiture.Resources.Views.Shared._OwnerDashboard.nothing</span></center>
+        <div class="col-md-6 col-12">
+            <div class="card card_info h-100">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        @LocationVoiture.Resources.Views.Shared.Dashboard.nb_voi
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">
 
-    }
-    <hr/>
+                        <div id="chart_container_cars">
+                            <canvas id="bar_chart_cars">
+                            </canvas>
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-12">
+            <div class="card card_info h-100">
+                <div class="card-header d-flex justify-content-between">
+                    <div>
+                        @LocationVoiture.Resources.Views.Shared.Dashboard.price
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">
+
+                        <div id="chart_container_prices">
+                            <canvas id="bar_chart_prices">
+                            </canvas>
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 </div>
+
+
+@section chart{
+    <script>
+            var tenants = @Html.Raw(Json.Encode(ViewBag.tenants));
+            var owners = @Html.Raw(Json.Encode(ViewBag.owners));
+            var cars = @Html.Raw(Json.Encode(ViewBag.cars));
+            var res = @Html.Raw(Json.Encode(ViewBag.res));
+            var months = @Html.Raw(Json.Encode(ViewBag.months));
+
+            @*-- START -- chart for locataire*@
+
+            var ctx = $("#bar_chart_tenant");
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [
+                        {
+                            label: "Locataires",
+                            data: tenants,
+                            backgroundColor: 'rgb(40, 62, 118)'
+                        }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.month"
+                            }
+                        }]
+                    }
+                }
+            });
+            @* -- END --chart for locataire *@
+
+
+
+            @* --START --chart for voiture *@
+            var ctx1 = $("#bar_chart_cars");
+            var myChart = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: "Cars",
+                        data: cars,
+                        backgroundColor: 'rgb(40, 62, 118)'
+                    },]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.month"
+                            }
+                        }]
+                    }
+                }
+            });
+            @* --END --chart for voiture *@
+
+
+            @* --START --chart for reservation *@
+            var ctx2 = $("#bar_chart_res");
+            var myChart = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Reservation',
+                        backgroundColor: 'rgb(40, 62, 118)',
+                        data: res,
+                    },]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
+                            }
+                        }],
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.month"
+                            }
+                        }]
+                    }
+                }
+            });
+            @* --END --chart for reservation *@
+
+
+    </script>
+}

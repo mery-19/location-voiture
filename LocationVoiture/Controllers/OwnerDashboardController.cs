@@ -16,12 +16,45 @@ namespace LocationVoiture.Controllers
         // GET: Owner
         public ActionResult Index()
         {
+            var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
+
+            /*--STATISTICS START--*/
+            List<ApplicationUser> users = db.Users.ToList();
+            List<Voiture> cars = db.Voitures.ToList();
+            List<Reservation> res = db.Reservations.ToList();
+            List<int> months = new List<int>();
+            List<int> tenants = new List<int>();
+            List<int> cars_nb = new List<int>();
+            List<int> res_nb = new List<int>();
+            int year = DateTime.Now.Year;
+
+            for (int i = 1; i <= 12; i++)
+            {
+                tenants.Add(users.Count(x => x.date_join.Year == year && x.date_join.Month == i && x.Roles.Any(s => s.RoleId == "2")));
+                cars_nb.Add(cars.Count(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.UserId == user.Id));
+                res_nb.Add(res.Count(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.Voiture.UserId == user.Id));
+                /*Total Price*/
+                months.Add(i);
+            }
+
+            ViewBag.months = months;
+            ViewBag.cars = cars_nb;
+            ViewBag.res = res_nb;
+            ViewBag.tenants = tenants;
+            /*-- STATISTICS END--*/
+            return View();
+        }
+
+        public ActionResult historique()
+        {
             HistoryOwner history = new HistoryOwner();
             var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
             history.reservations = db.Reservations.Where(x => x.Voiture.ApplicationUser.Id == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Voiture).ToList<Reservation>();
-            history.offresDisponibles = db.Offres.Where(x => x.UserId == user.Id&&x.date_expiration>=DateTime.Now).Include(v => v.ApplicationUser).ToList<Offre>();
+            history.offresDisponibles = db.Offres.Where(x => x.UserId == user.Id && x.date_expiration >= DateTime.Now).Include(v => v.ApplicationUser).ToList<Offre>();
             history.offresExpires = db.Offres.Where(x => x.UserId == user.Id && x.date_expiration < DateTime.Now).Include(v => v.ApplicationUser).ToList<Offre>();
+
             return View(history);
         }
+
     }
 }

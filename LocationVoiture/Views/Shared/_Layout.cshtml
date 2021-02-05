@@ -13,6 +13,9 @@
           integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY="
           crossorigin="anonymous" />
 
+    <script src="~/Scripts/Chart.min.js"></script>
+
+
 </head>
 <body>
 
@@ -111,6 +114,9 @@
     <script src="~/Scripts/paging.js"></script>
 
     @Scripts.Render("~/Scripts/Script.js")
+
+    @RenderSection("chartSection", required: false)
+
 
 </body>
 </html>
