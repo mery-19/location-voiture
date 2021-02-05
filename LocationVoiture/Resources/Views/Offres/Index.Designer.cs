@@ -124,11 +124,38 @@ namespace LocationVoiture.Resources.Views.Offres {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Available offers.
+        /// </summary>
+        public static string offreDispo {
+            get {
+                return ResourceManager.GetString("offreDispo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expired offers.
+        /// </summary>
+        public static string offreExpire {
+            get {
+                return ResourceManager.GetString("offreExpire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Discount rate.
         /// </summary>
         public static string tauxDeRemise {
             get {
                 return ResourceManager.GetString("tauxDeRemise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reserved cars.
+        /// </summary>
+        public static string voitureDispo {
+            get {
+                return ResourceManager.GetString("voitureDispo", resourceCulture);
             }
         }
     }

@@ -121,6 +121,9 @@
     <value>Mes Voitures</value>
   </data>
   <data name="dashboard" xml:space="preserve">
+    <value>Tableau de bord</value>
+  </data>
+  <data name="history" xml:space="preserve">
     <value>Historique</value>
   </data>
   <data name="le" xml:space="preserve">

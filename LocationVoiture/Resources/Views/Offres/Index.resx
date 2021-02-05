@@ -138,7 +138,16 @@
   <data name="libele" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="offreDispo" xml:space="preserve">
+    <value>Available offers</value>
+  </data>
+  <data name="offreExpire" xml:space="preserve">
+    <value>Expired offers</value>
+  </data>
   <data name="tauxDeRemise" xml:space="preserve">
     <value>Discount rate</value>
+  </data>
+  <data name="voitureDispo" xml:space="preserve">
+    <value>Reserved cars</value>
   </data>
 </root>

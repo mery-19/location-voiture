@@ -70,11 +70,20 @@ namespace LocationVoiture.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to History.
+        ///   Looks up a localized string similar to Dashboard.
         /// </summary>
         public static string dashboard {
             get {
                 return ResourceManager.GetString("dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to History.
+        /// </summary>
+        public static string history {
+            get {
+                return ResourceManager.GetString("history", resourceCulture);
             }
         }
         
