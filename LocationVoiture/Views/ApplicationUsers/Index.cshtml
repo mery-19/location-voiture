@@ -10,72 +10,89 @@
         Create
     </a>
 </p>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.date_join)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserAdress)
-            </th>
 
-            <th></th>
-        </tr>
-    </thead>
+@using (Html.BeginForm())
+{
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Convert.ToDateTime(item.date_join).ToString("dd/MM/yyyy")
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserAdress)
-            </td>
-            <td>
-                <a href="@Url.Action("Edit", "ApplicationUsers", new { id = item.Id  })" class="text-success">
-                    <i class="material-icons icon " style="color:yellow">
-                        edit
-                    </i>
-                </a>
-                <a href="@Url.Action("Details", "ApplicationUsers", new { id = item.Id  })" class="text-success">
-                    <i class="material-icons icon ">
-                        visibility
-                    </i>
-                </a>
-                <a data-delete-id="@item.Id" class="text-danger delete-link-user pointer">
-                    <i class="material-icons icon ">
-                        delete
-                    </i>
-                </a>
-                @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
-            </td>
-        </tr>
-    }
-    <tbody>
-</table>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date_join)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserAdress)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Convert.ToDateTime(item.date_join).ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserAdress)
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>
+                        <a href="@Url.Action("Create", "FavoriteLists", new { id = item.Id })" class="text-success">
+                            <i class="material-icons icon " style="color:red">
+                                favorite
+                            </i>
+                        </a>
+                        <a href="@Url.Action("Edit", "ApplicationUsers", new { id = item.Id })" class="text-success">
+                            <i class="material-icons icon " style="color:blue">
+                                thumb_down
+                            </i>
+                        </a>
+                        <a href="@Url.Action("Details", "ApplicationUsers", new { id = item.Id })" class="text-success">
+                            <i class="material-icons icon">
+                                visibility
+                            </i>
+                        </a>
+                        <a data-delete-id="@item.Id" class="text-danger delete-link-user pointer">
+                            <i class="material-icons icon " style="color:grey">
+                                delete
+                            </i>
+                        </a>
+                        @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                    </td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+}

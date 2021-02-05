@@ -1,0 +1,79 @@
+﻿@model IEnumerable<LocationVoiture.Models.FavoriteList>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.UserType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.date_join)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.UserAdress)
+            </th>
+
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationUser.UserType)
+        </th>
+        <th></th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.ApplicationUser.date_join).ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.UserAdress)
+                </td>
+                <td>
+                    <a href="@Url.Action("Details", "ApplicationUsers", new { id = item.ApplicationUser.Id  })" class="text-success">
+                        <i class="material-icons icon">
+                            visibility
+                        </i>
+                    </a>
+                    <a data-delete-id="@item.ApplicationUser.Id" class="text-danger delete-link-favorite pointer">
+                        <i class="material-icons icon " style="color:grey">
+                            delete
+                        </i>
+                    </a>
+                    @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

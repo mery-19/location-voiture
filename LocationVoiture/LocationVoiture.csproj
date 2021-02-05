@@ -173,6 +173,7 @@
     <Compile Include="Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\ApplicationUsersController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\FavoriteListsController.cs" />
     <Compile Include="Controllers\LocatairesController.cs" />
     <Compile Include="Controllers\MarquesController.cs" />
     <Compile Include="Controllers\OffresController.cs" />
@@ -200,8 +201,13 @@
     <Compile Include="Migrations\202102030045208_addForeignKeyToOffer.Designer.cs">
       <DependentUpon>202102030045208_addForeignKeyToOffer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102052302343_addFavoriteList.cs" />
+    <Compile Include="Migrations\202102052302343_addFavoriteList.Designer.cs">
+      <DependentUpon>202102052302343_addFavoriteList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\FavoriteListViewModel.cs" />
     <Compile Include="Models\HistoryOwner.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Languages.cs" />
@@ -846,6 +852,11 @@
     <Content Include="Views\Offres\Edit.cshtml" />
     <Content Include="Views\Offres\Index.cshtml" />
     <Content Include="Views\OwnerDashboard\historique.cshtml" />
+    <Content Include="Views\FavoriteLists\Create.cshtml" />
+    <Content Include="Views\FavoriteLists\Delete.cshtml" />
+    <Content Include="Views\FavoriteLists\Details.cshtml" />
+    <Content Include="Views\FavoriteLists\Edit.cshtml" />
+    <Content Include="Views\FavoriteLists\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -872,6 +883,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102030045208_addForeignKeyToOffer.resx">
       <DependentUpon>202102030045208_addForeignKeyToOffer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102052302343_addFavoriteList.resx">
+      <DependentUpon>202102052302343_addFavoriteList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Locataire.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -518,6 +518,8 @@ D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Vie
 D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Home.index.fr.resources
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Home.index.resources
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Home.index.fr.resources
-C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.csprojAssemblyReference.cache
 D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared.Dashboard.resources
 D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared.Dashboard.fr.resources
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared.Dashboard.resources
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared.Dashboard.fr.resources
+C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.addFavoriteList.resources
