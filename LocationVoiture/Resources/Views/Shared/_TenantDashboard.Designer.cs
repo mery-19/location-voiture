@@ -70,11 +70,38 @@ namespace LocationVoiture.Resources.Views.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string details {
+            get {
+                return ResourceManager.GetString("details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to History.
         /// </summary>
         public static string history {
             get {
                 return ResourceManager.GetString("history", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to on.
+        /// </summary>
+        public static string le {
+            get {
+                return ResourceManager.GetString("le", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You booked this car from the owner.
+        /// </summary>
+        public static string notification {
+            get {
+                return ResourceManager.GetString("notification", resourceCulture);
             }
         }
         
