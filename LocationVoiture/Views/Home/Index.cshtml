@@ -1,11 +1,67 @@
-﻿@{
+﻿@model IEnumerable<LocationVoiture.Models.Voiture>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
- 
-    <h1>
-        Home
-    </h1>
-<div>
-    
+
+
+<section>
+    <div class="jumbotron text-center">
+        <h1 class="">
+            @LocationVoiture.Resources.Views.Home.index.title
+        </h1>
+        <h3>@LocationVoiture.Resources.Views.Home.index.best_offre</h3>
+        <a href="~/Account/Login" class="btn bg-white font-weight-bold w-20 login-btn pointer">@LocationVoiture.Resources.Views.Home.index.login</a>
+    </div>
+</section>
+
+<div class="container">
+    <div class="title ml-5">
+        <h1>@LocationVoiture.Resources.Views.Home.index.best_offre</h1>
+    </div>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <ul id="listPage" class="text-center">
+                @foreach (var item in Model)
+                {
+                    if (item.Offre != null)
+                    {
+                        <li style="min-height:200px;">
+
+
+                            <div class="card row flex-row flex-wrap m-3 h-100">
+                                <div class="card-header border-0" style="        min-height: 200px; width: 250px;
+">
+                                    <img src="~/Uploads/cars/@Html.DisplayFor(model => item.photo)" alt="" class="h-100" style=" width:250px;">
+                                </div>
+                                <div class="card-block my-3" style="margin-left:150px;">
+                                    <h4 class="card-title">
+                                        @Html.DisplayFor(modelItem => item.matricul) ( <span class="text-success font-weight-bold">- @item.Offre.taux_remise%</span>)
+
+                                    </h4>
+                                    <p class="card-text">
+                                        <span class="font-weight-bold">@Html.LabelFor(modelItem => item.prix):</span>  @Html.DisplayFor(modelItem => item.prix) DHs <br />
+                                        <span class="font-weight-bold">@Html.LabelFor(modelItem => item.Marque):</span>  @Html.DisplayFor(modelItem => item.Marque.libele) <br />
+                                        <span class="font-weight-bold">@Html.LabelFor(modelItem => item.nb_passagers):</span>  @Html.DisplayFor(modelItem => item.nb_passagers) <br />
+                                        <span class="font-weight-bold">@Html.LabelFor(modelItem => item.couleur):</span>  @Html.DisplayFor(modelItem => item.couleur) <br />
+
+                                    </p>
+                                    <a href="#" class="btn btn-primary">BUTTON</a>
+                                </div>
+                            </div>
+
+
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+
+    <hr />
+</div>
+<div class="myFooter">
+    <h4>&copy; ENSA FES, MERYAM SOUSSI, MERIEM IKHARRAZEN</h4>
+</div>

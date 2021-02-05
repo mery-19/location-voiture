@@ -23,6 +23,7 @@ namespace LocationVoiture
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/PagingStyle.css",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/Style.css"
