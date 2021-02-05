@@ -4,8 +4,27 @@
     dark-blue: #283E76
 */
 
-table tr{
-    background-color:white;
+.myFooter {
+    padding: 10vh;
+    background: #3692EB;
+    text-align: center;
+    color: white;
+}
+
+
+.jumbotron {
+    background: #3692EB;
+    color: white;
+    margin-top: -20px;
+}
+
+.login-btn {
+    color: #3692EB;
+    width: 40%;
+}
+
+table tr {
+    background-color: white;
 }
 
 body {
@@ -13,6 +32,7 @@ body {
     padding: 0;
     background-color: #E7F3FF;
 }
+
 .margin-top {
     margin-top: 3.5rem;
 }
@@ -50,8 +70,9 @@ body {
     width: 12.5rem;
     transition: all ease 0.25s;
     transform: translateX(-100%);
-/*    z-index: 2000;
-*/}
+    /*    z-index: 2000;
+*/
+}
 
 .wrapper .content {
     width: 100%;
@@ -82,7 +103,7 @@ body {
         color: #283E76;
     }
 
-        .nav-link:hover {
+    .nav-link:hover {
         color: white;
         background-color: #3692EB;
         transition: ease 0.25s;

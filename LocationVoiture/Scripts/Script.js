@@ -153,4 +153,14 @@ $(document).ready(function () {
         }
         );
     });
+
+
+    $(function () {
+
+        $("#listPage").JPaging({
+            pageSize: 5
+        });
+
+    });
+
 });

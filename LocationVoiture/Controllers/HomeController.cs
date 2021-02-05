@@ -5,19 +5,22 @@ using System.Web.Mvc;
 using System.Globalization;
 using System.Threading;
 using System.Web;
-
+using LocationVoiture.Models;
 
 namespace LocationVoiture.Controllers
 {
     public class HomeController : BaseController
     {
-        
+
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public ActionResult Index(string lang)
         {
-            if(lang != null)
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(lang);
-            return View();
+            if (lang != null)
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(lang);
+
+            List<Voiture> voitures = db.Voitures.ToList();
+            return View(voitures);
         }
 
         public ActionResult About()
