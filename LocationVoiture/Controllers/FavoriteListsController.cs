@@ -36,28 +36,39 @@ namespace LocationVoiture.Controllers
             return View(favoriteList);
         }
 
-        // GET: FavoriteLists/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: FavoriteLists/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(int id)
+        // GET: FavoriteLists/Create/UserId
+        public ActionResult Create(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FavoriteList favoriteList = new FavoriteList();
-            favoriteList.UserId = id.ToString();
-            db.FavoriteLists.Add(favoriteList);
-            db.SaveChanges();
-            return View("~/Views/ApplicationUsers/Index.cshtml");
+            FavoriteList favoriteList = db.FavoriteLists.Where(x => x.UserId.Equals(id)).FirstOrDefault();
+            if (favoriteList == null)
+            {
+                return HttpNotFound();
+            }
+            return View(favoriteList);
+            //return View("~/Views/ApplicationUsers/Index.cshtml");
+        }
+
+        // POST: FavoriteLists/Create/UserId
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost, ActionName("Create")]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateConfirmed(string id)
+        {
+            FavoriteList favoriteList = db.FavoriteLists.Where(x => x.UserId.Equals(id)).FirstOrDefault();
+            if (favoriteList == null)
+            {
+                favoriteList = new FavoriteList();
+                favoriteList.UserId = id;
+                db.FavoriteLists.Add(favoriteList);
+                db.SaveChanges();
+            }
+            return Redirect(Url.Action("Index", "ApplicationUsers"));
+            //return View("~/Views/ApplicationUsers/Index.cshtml");
         }
 
         // GET: FavoriteLists/Edit/5

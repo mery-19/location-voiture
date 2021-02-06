@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<LocationVoiture.Models.FavoriteList>
 
 @{
-    ViewBag.Title = "Index";
+    //ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminDashboard.cshtml";
 }
 
@@ -31,12 +31,6 @@
             <th>Actions</th>
         </tr>
     </thead>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicationUser.UserType)
-        </th>
-        <th></th>
-    </tr>
     <tbody>
         @foreach (var item in Model)
         {
@@ -60,12 +54,12 @@
                     @Html.DisplayFor(modelItem => item.ApplicationUser.UserAdress)
                 </td>
                 <td>
-                    <a href="@Url.Action("Details", "ApplicationUsers", new { id = item.ApplicationUser.Id  })" class="text-success">
+                    <a href="@Url.Action("Details", "ApplicationUsers", new { id = item.UserId })" class="text-success">
                         <i class="material-icons icon">
                             visibility
                         </i>
                     </a>
-                    <a data-delete-id="@item.ApplicationUser.Id" class="text-danger delete-link-favorite pointer">
+                    <a data-delete-id="@item.id_favorite" class="text-danger delete-link-favorite pointer">
                         <i class="material-icons icon " style="color:grey">
                             delete
                         </i>

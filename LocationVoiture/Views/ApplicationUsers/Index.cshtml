@@ -5,11 +5,6 @@
     Layout = "~/Views/Shared/_AdminDashboard.cshtml";
 }
 
-<p>
-    <a href="@Url.Action("Create", "ApplicationUsers")" class="text-success">
-        Create
-    </a>
-</p>
 
 @using (Html.BeginForm())
 {
@@ -17,6 +12,9 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.UserType)
                 </th>
@@ -36,7 +34,7 @@
                     @Html.DisplayNameFor(model => model.UserAdress)
                 </th>
 
-                <th></th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +42,9 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.UserType)
                     </td>
@@ -63,16 +64,12 @@
                         @Html.DisplayFor(modelItem => item.UserAdress)
                     </td>
                     <td>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Create" class="btn btn-default" />
-                            </div>
-                        </div>
-                        <a href="@Url.Action("Create", "FavoriteLists", new { id = item.Id })" class="text-success">
+                        <a data-add-id="@item.Id" class="text-danger add-link-favorite pointer">
                             <i class="material-icons icon " style="color:red">
                                 favorite
                             </i>
                         </a>
+                        @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
                         <a href="@Url.Action("Edit", "ApplicationUsers", new { id = item.Id })" class="text-success">
                             <i class="material-icons icon " style="color:blue">
                                 thumb_down
@@ -92,7 +89,7 @@
                     </td>
                 </tr>
             }
-            
+
         </tbody>
     </table>
 }

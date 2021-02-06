@@ -21,12 +21,12 @@ $(document).ready(function () {
     });
 
 
-      /*  $("#UserType").change(function () {
-            console("clicked");
-            var val = $('#type option:selected').val();
-            console.log(val);
+    /*  $("#UserType").change(function () {
+          console("clicked");
+          var val = $('#type option:selected').val();
+          console.log(val);
 
-        });*/
+      });*/
 
 
     var frensh = {
@@ -54,7 +54,7 @@ $(document).ready(function () {
     if (Cookies.get('culture') === "fr") {
         window.$('.table').DataTable(frensh);
 
-        $("#selected-language").html ("<img src='https://www.countryflags.io/fr/flat/32.png' class='icon-country' /> Français");
+        $("#selected-language").html("<img src='https://www.countryflags.io/fr/flat/32.png' class='icon-country' /> Français");
 
     } else {
         window.$('.table').DataTable();
@@ -153,7 +153,64 @@ $(document).ready(function () {
         }
         );
     });
+    $(function () {
+        $("a.delete-link-favorite").click(function () {
 
+            var token = $("[name='__RequestVerificationToken']").val();
+
+            console.log(token);
+            var checkstr;
+            if (Cookies.get('culture') === "fr") {
+                checkstr = confirm('Voullez vous vraiment supprimer cet utilisateur de la liste de favoris?');
+
+            } else {
+                checkstr = confirm('are you sure you want to delete this user to your favorite list?');
+            }
+            if (checkstr == true) {
+                $.ajax({
+                    url: '/FavoriteLists/Delete/' + $(".delete-link-favorite").attr('data-delete-id'),
+                    type: "POST",
+                    data: {
+                        __RequestVerificationToken: token,
+                    },
+                    success: function () {
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+        );
+    });
+
+
+    $(function () {
+        $("a.add-link-favorite").click(function () {
+
+            var token = $("[name='__RequestVerificationToken']").val();
+
+            console.log(token);
+            var checkstr;
+            if (Cookies.get('culture') === "fr") {
+                checkstr = confirm('Voullez vous ajouter cet utilisateur de la liste de favoris?');
+
+            } else {
+                checkstr = confirm('are you sure you want to add this user to your favorite list?');
+            }
+            if (checkstr == true) {
+                $.ajax({
+                    url: '/ApplicationUsers/Create/' + $(".add-link-favorite").attr('data-add-id'),
+                    type: "POST",
+                    data: {
+                        __RequestVerificationToken: token,
+                    },
+                    success: function () {
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+        );
+    });
 
     $(function () {
 

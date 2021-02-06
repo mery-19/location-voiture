@@ -36,27 +36,37 @@ namespace LocationVoiture.Controllers
         }
 
         // GET: ApplicationUsers/Create
-        public ActionResult Create()
+        public ActionResult Create(string id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            FavoriteList favoriteList = db.FavoriteLists.Where(x => x.UserId.Equals(id)).FirstOrDefault();
+            if (favoriteList == null)
+            {
+                return HttpNotFound();
+            }
+            return View(favoriteList);
         }
 
         // POST: ApplicationUsers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Create")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserType,UserAdress,date_join,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] ApplicationUser applicationUser)
+        public ActionResult CreateConfirmed(string id)
         {
-            if (ModelState.IsValid)
+            FavoriteList favoriteList = db.FavoriteLists.Where(x => x.UserId.Equals(id)).FirstOrDefault();
+            if (favoriteList == null)
             {
-                applicationUser.date_join = DateTime.Now;
-                db.Users.Add(applicationUser);
+                favoriteList = new FavoriteList();
+                favoriteList.UserId = id;
+                db.FavoriteLists.Add(favoriteList);
                 db.SaveChanges();
-                return RedirectToAction("Index");
             }
-
-            return View(applicationUser);
+            return RedirectToAction("Index");
+            //return View("~/Views/ApplicationUsers/Index.cshtml");
         }
 
         // GET: ApplicationUsers/Edit/5
@@ -111,7 +121,11 @@ namespace LocationVoiture.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             ApplicationUser applicationUser = db.Users.Find(id);
-            db.Users.Remove(applicationUser);
+            FavoriteList favoriteList = db.FavoriteLists.Where(x => x.UserId == id).FirstOrDefault();
+            if (favoriteList != null)
+                db.FavoriteLists.Remove(favoriteList);
+            if (applicationUser != null)
+                db.Users.Remove(applicationUser);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
