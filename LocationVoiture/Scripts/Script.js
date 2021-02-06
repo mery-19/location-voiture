@@ -184,11 +184,11 @@ $(document).ready(function () {
 
 
     $(function () {
-        $("a.add-link-favorite").click(function () {
+        $('#table-user tbody').on('click', 'a.add-link-favorite', function () {
 
             var token = $("[name='__RequestVerificationToken']").val();
-
-            console.log(token);
+            console.log($(this).attr('data-add-id'));
+            var user_id = $(this).attr('data-add-id');
             var checkstr;
             if (Cookies.get('culture') === "fr") {
                 checkstr = confirm('Voullez vous ajouter cet utilisateur de la liste de favoris?');
@@ -198,7 +198,7 @@ $(document).ready(function () {
             }
             if (checkstr == true) {
                 $.ajax({
-                    url: '/ApplicationUsers/Create/' + $(".add-link-favorite").attr('data-add-id'),
+                    url: '/ApplicationUsers/Create/' + user_id,
                     type: "POST",
                     data: {
                         __RequestVerificationToken: token,
