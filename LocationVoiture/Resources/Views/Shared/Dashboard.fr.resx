@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="black_list" xml:space="preserve">
+    <value>Liste noire</value>
+  </data>
+  <data name="favorite_list" xml:space="preserve">
+    <value>Liste des favoris</value>
+  </data>
   <data name="locataire" xml:space="preserve">
     <value>Locataires</value>
   </data>
@@ -143,5 +149,8 @@
   </data>
   <data name="price" xml:space="preserve">
     <value>Les prix total</value>
+  </data>
+  <data name="roles" xml:space="preserve">
+    <value>Rôles</value>
   </data>
 </root>

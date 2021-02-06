@@ -6,32 +6,26 @@
 }
 
 
-@using (Html.BeginForm())
-{
-
-    <table class="table table-striped" id="table-user">
+<table class="table table-striped" id="table-user">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Id)
+                    @LocationVoiture.Resources.Views.Account.Register.type
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.UserType)
+                    @LocationVoiture.Resources.Views.Account.Register.name
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.UserName)
+                    @LocationVoiture.Resources.Views.Account.Register.date_join
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.date_join)
+                    @LocationVoiture.Resources.Views.Account.Register.email
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Email)
+                    @LocationVoiture.Resources.Views.Account.Register.number
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.UserAdress)
+                    @LocationVoiture.Resources.Views.Account.Register.adress
                 </th>
 
                 <th>Actions</th>
@@ -42,9 +36,6 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.UserType)
                     </td>
@@ -70,11 +61,12 @@
                             </i>
                         </a>
                         @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
-                        <a href="@Url.Action("Edit", "ApplicationUsers", new { id = item.Id })" class="text-success">
+                        <a data-add-id="@item.Id" class="text-danger add-link-black pointer">
                             <i class="material-icons icon " style="color:blue">
                                 thumb_down
                             </i>
                         </a>
+                        @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
                         <a href="@Url.Action("Details", "ApplicationUsers", new { id = item.Id })" class="text-success">
                             <i class="material-icons icon">
                                 visibility
@@ -91,5 +83,4 @@
             }
 
         </tbody>
-    </table>
-}
+</table>

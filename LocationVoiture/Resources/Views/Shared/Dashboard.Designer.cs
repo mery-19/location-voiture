@@ -61,6 +61,24 @@ namespace LocationVoiture.Resources.Views.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Black list.
+        /// </summary>
+        public static string black_list {
+            get {
+                return ResourceManager.GetString("black_list", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favotite list.
+        /// </summary>
+        public static string favorite_list {
+            get {
+                return ResourceManager.GetString("favorite_list", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tenants.
         /// </summary>
         public static string locataire {
@@ -138,6 +156,15 @@ namespace LocationVoiture.Resources.Views.Shared {
         public static string price {
             get {
                 return ResourceManager.GetString("price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roles.
+        /// </summary>
+        public static string roles {
+            get {
+                return ResourceManager.GetString("roles", resourceCulture);
             }
         }
     }

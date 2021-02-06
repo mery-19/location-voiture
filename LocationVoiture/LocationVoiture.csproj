@@ -173,6 +173,7 @@
     <Compile Include="Controllers\AdminDashboardController.cs" />
     <Compile Include="Controllers\ApplicationUsersController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BlackListsController.cs" />
     <Compile Include="Controllers\FavoriteListsController.cs" />
     <Compile Include="Controllers\LocatairesController.cs" />
     <Compile Include="Controllers\MarquesController.cs" />
@@ -205,8 +206,17 @@
     <Compile Include="Migrations\202102052302343_addFavoriteList.Designer.cs">
       <DependentUpon>202102052302343_addFavoriteList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102062241449_addBlackList.cs" />
+    <Compile Include="Migrations\202102062241449_addBlackList.Designer.cs">
+      <DependentUpon>202102062241449_addBlackList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102062315134_changeId_blackList.cs" />
+    <Compile Include="Migrations\202102062315134_changeId_blackList.Designer.cs">
+      <DependentUpon>202102062315134_changeId_blackList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BlackListViewModel.cs" />
     <Compile Include="Models\FavoriteListViewModel.cs" />
     <Compile Include="Models\HistoryOwner.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -853,6 +863,11 @@
     <Content Include="Views\FavoriteLists\Details.cshtml" />
     <Content Include="Views\FavoriteLists\Edit.cshtml" />
     <Content Include="Views\FavoriteLists\Index.cshtml" />
+    <Content Include="Views\BlackLists\Create.cshtml" />
+    <Content Include="Views\BlackLists\Delete.cshtml" />
+    <Content Include="Views\BlackLists\Details.cshtml" />
+    <Content Include="Views\BlackLists\Edit.cshtml" />
+    <Content Include="Views\BlackLists\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -882,6 +897,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102052302343_addFavoriteList.resx">
       <DependentUpon>202102052302343_addFavoriteList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102062241449_addBlackList.resx">
+      <DependentUpon>202102062241449_addBlackList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102062315134_changeId_blackList.resx">
+      <DependentUpon>202102062315134_changeId_blackList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models\Locataire.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

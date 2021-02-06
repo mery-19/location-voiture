@@ -181,7 +181,34 @@ $(document).ready(function () {
         }
         );
     });
+    $(function () {
+        $("a.delete-link-black").click(function () {
 
+            var token = $("[name='__RequestVerificationToken']").val();
+
+            console.log(token);
+            var checkstr;
+            if (Cookies.get('culture') === "fr") {
+                checkstr = confirm('Voullez vous vraiment supprimer cet utilisateur de la liste noire?');
+
+            } else {
+                checkstr = confirm('are you sure you want to delete this user to your black list?');
+            }
+            if (checkstr == true) {
+                $.ajax({
+                    url: '/BlackLists/Delete/' + $(".delete-link-black").attr('data-delete-id'),
+                    type: "POST",
+                    data: {
+                        __RequestVerificationToken: token,
+                    },
+                    success: function () {
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+        );
+    });
 
     $(function () {
         $('#table-user tbody').on('click', 'a.add-link-favorite', function () {
@@ -191,14 +218,43 @@ $(document).ready(function () {
             var user_id = $(this).attr('data-add-id');
             var checkstr;
             if (Cookies.get('culture') === "fr") {
-                checkstr = confirm('Voullez vous ajouter cet utilisateur de la liste de favoris?');
+                checkstr = confirm('Voullez vous ajouter cet utilisateur à la liste de favoris?');
 
             } else {
-                checkstr = confirm('are you sure you want to add this user to your favorite list?');
+                checkstr = confirm('Are you sure you want to add this user to your favorite list?');
             }
             if (checkstr == true) {
                 $.ajax({
-                    url: '/ApplicationUsers/Create/' + user_id,
+                    url: '/FavoriteLists/Create/' + user_id,
+                    type: "POST",
+                    data: {
+                        __RequestVerificationToken: token,
+                    },
+                    success: function () {
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+        );
+    });
+
+    $(function () {
+        $('#table-user tbody').on('click', 'a.add-link-black', function () {
+
+            var token = $("[name='__RequestVerificationToken']").val();
+            console.log($(this).attr('data-add-id'));
+            var user_id = $(this).attr('data-add-id');
+            var checkstr;
+            if (Cookies.get('culture') === "fr") {
+                checkstr = confirm('Voullez vous ajouter cet utilisateur à la liste de noire?');
+
+            } else {
+                checkstr = confirm('Are you sure you want to add this user to your black list?');
+            }
+            if (checkstr == true) {
+                $.ajax({
+                    url: '/BlackLists/Create/' + user_id,
                     type: "POST",
                     data: {
                         __RequestVerificationToken: token,

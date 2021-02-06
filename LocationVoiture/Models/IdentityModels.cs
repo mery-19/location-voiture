@@ -41,6 +41,7 @@ namespace LocationVoiture.Models
        public virtual DbSet<Voiture> Voitures { get; set; }
        public virtual DbSet<Reservation> Reservations { get; set; }
        public virtual DbSet<FavoriteList> FavoriteLists { get; set; }
+        public virtual DbSet<BlackList> BlackLists { get; set; }
 
         public static ApplicationDbContext Create()
         {
@@ -59,7 +60,5 @@ namespace LocationVoiture.Models
             modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaim");
             modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogin");
         }
-
-
     }
 }

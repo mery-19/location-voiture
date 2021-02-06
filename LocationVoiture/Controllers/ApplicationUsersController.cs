@@ -125,8 +125,7 @@ namespace LocationVoiture.Controllers
             FavoriteList favoriteList = db.FavoriteLists.Where(x => x.UserId == id).FirstOrDefault();
             if (favoriteList != null)
                 db.FavoriteLists.Remove(favoriteList);
-            if (applicationUser != null)
-                db.Users.Remove(applicationUser);
+            db.Users.Remove(applicationUser);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

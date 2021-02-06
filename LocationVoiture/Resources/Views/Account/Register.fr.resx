@@ -123,6 +123,9 @@
   <data name="confirmPassword" xml:space="preserve">
     <value>Confirmez le mot de passe</value>
   </data>
+  <data name="date_join" xml:space="preserve">
+    <value>Date d'inscription</value>
+  </data>
   <data name="email" xml:space="preserve">
     <value>Email</value>
   </data>

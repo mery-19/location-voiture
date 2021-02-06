@@ -79,6 +79,15 @@ namespace LocationVoiture.Resources.Views.Account {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date join.
+        /// </summary>
+        public static string date_join {
+            get {
+                return ResourceManager.GetString("date_join", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string email {
