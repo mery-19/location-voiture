@@ -3,14 +3,23 @@
 }
 
 <div class="container mt-3">
-    <h2>Admin dashbord</h2>
+    <h2 class="px-5 py-2 text-center">Statistics</h2>
+
+    @using (Html.BeginForm("Index", "AdminDashboard", FormMethod.Get))
+    {
+        <div class="d-flex  justify-content-center">
+            <input type="text" name="year" value="@ViewBag.year" class="form-control" />
+            <input type="submit" value=@LocationVoiture.Resources.most.search class="btn btn-primary ml-2" />
+        </div>
+    }
+    <hr />
     <div class="row d-flex m-5">
 
         <div class="col-md-6 col-12">
             <div class="card card_info h-100">
                 <div class="card-header d-flex justify-content-between">
                     <div>
-                        Nombre de Locataires inscrits (2021)
+                        @LocationVoiture.Resources.Views.Shared.Dashboard.nb_client (@ViewBag.year)
                     </div>
                 </div>
                 <div class="card-body">
@@ -30,7 +39,7 @@
             <div class="card card_info h-100">
                 <div class="card-header d-flex justify-content-between">
                     <div>
-                        NOMBRE DES RESERVATION EFFECTUE
+                        @LocationVoiture.Resources.Views.Shared.Dashboard.nb_res (@ViewBag.year)
                     </div>
                 </div>
                 <div class="card-body">
@@ -54,7 +63,7 @@
             <div class="card card_info h-100">
                 <div class="card-header d-flex justify-content-between">
                     <div>
-                        Nombre des voiture ajouter
+                        @LocationVoiture.Resources.Views.Shared.Dashboard.nb_voi (@ViewBag.year)
                     </div>
                 </div>
                 <div class="card-body">
@@ -71,13 +80,13 @@
             </div>
         </div>
 
-       
+
     </div>
 </div>
 
 
-    @section chart{
-        <script>
+@section chart{
+    <script>
             var tenants = @Html.Raw(Json.Encode(ViewBag.tenants));
             var owners = @Html.Raw(Json.Encode(ViewBag.owners));
             var cars = @Html.Raw(Json.Encode(ViewBag.cars));
@@ -104,6 +113,9 @@
                 options: {
                     scales: {
                         yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
                             scaleLabel: {
                                 display: true,
                                 labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
@@ -137,6 +149,9 @@
                 options: {
                     scales: {
                         yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
                             scaleLabel: {
                                 display: true,
                                 labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
@@ -169,6 +184,9 @@
                 options: {
                     scales: {
                         yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            },
                             scaleLabel: {
                                 display: true,
                                 labelString: "@LocationVoiture.Resources.Views.Shared.Dashboard.nb"
@@ -177,7 +195,7 @@
                         xAxes: [{
                             scaleLabel: {
                                 display: true,
-                                labelString: 'months'
+                                labelString:"@LocationVoiture.Resources.Views.Shared.Dashboard.month"
                             }
                         }]
                     }
@@ -186,5 +204,5 @@
             @* --END --chart for reservation *@
 
 
-        </script>
-    }
+    </script>
+}

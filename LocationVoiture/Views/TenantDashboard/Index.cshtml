@@ -23,7 +23,7 @@
 ">
                                         <img src="~/Uploads/cars/@Html.DisplayFor(model => item.Voiture.photo)" alt="" class="h-100" style=" width:200px;">
                                     </div>
-                                    <div class="card-block my-3" style="        margin-left: 100px;">
+                                    <div class="card-block my-3" style="margin-left: 100px;">
                                         <center style="margin-top: 50px;margin-bottom:50px;">
                                             <p class="card-text" style="width: 400px;">
                                                 @LocationVoiture.Resources.Views.Shared._TenantDashboard.notification<span class="font-weight-bold"> @Html.DisplayFor(modelItem => item.Voiture.ApplicationUser.UserName)</span>,  @LocationVoiture.Resources.Views.Shared._TenantDashboard.le <span class="font-weight-bold"> @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")</span>
@@ -45,9 +45,9 @@
     }
     else
     {
-            <center>
-                <span class="font-weight-bold"> @LocationVoiture.Resources.Views.Shared._TenantDashboard.nothing</span>
-            </center>
+        <center>
+            <span class="font-weight-bold"> @LocationVoiture.Resources.Views.Shared._TenantDashboard.nothing</span>
+        </center>
     }
     <hr />
 </div>

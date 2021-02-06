@@ -136,7 +136,7 @@
     <value>No data to display</value>
   </data>
   <data name="notification" xml:space="preserve">
-    <value>This car is controlled by</value>
+    <value>This car is booked by</value>
   </data>
   <data name="profil" xml:space="preserve">
     <value>Profil</value>

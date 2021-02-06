@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -40,7 +38,7 @@ namespace LocationVoiture.Models
         public string couleur { get; set; }
 
         [Display(Name = "prix", ResourceType = typeof(LocationVoiture.Resources.Models.VoitureModel))]
-        public string prix { get; set; }
+        public float prix { get; set; }
 
         [Display(Name = "photo", ResourceType = typeof(LocationVoiture.Resources.Models.VoitureModel))]
         public string photo { get; set; }
@@ -58,6 +56,17 @@ namespace LocationVoiture.Models
         public DateTime date_ajout { get; set; }
 
         public virtual ICollection<Reservation> Reservations { get; set; }
+
+        public string Prix_total()
+        {
+            if (Offre != null && Offre.date_expiration >= DateTime.Now)
+            {
+                float price = prix - (prix * Offre.taux_remise) / 100;
+                return price.ToString("0.00");
+            }
+
+            return prix.ToString("0.00");
+        }
 
     }
 }

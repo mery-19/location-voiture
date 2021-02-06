@@ -59,6 +59,13 @@ else if (User.IsInRole("Admin"))
                 @Html.DisplayFor(model => model.Paiement.libele)
             </dd>
 
+            <dt class="col-md-3">
+                @Html.DisplayNameFor(model => model.prix)
+            </dt>
+
+            <dd class="col-md-9">
+                @Html.DisplayFor(model => model.prix) DHs
+            </dd>
 
             <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.date_prise_en_charge)

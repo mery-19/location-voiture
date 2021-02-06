@@ -115,7 +115,7 @@ namespace LocationVoiture.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This car is controlled by.
+        ///   Looks up a localized string similar to This car is booked by.
         /// </summary>
         public static string notification {
             get {

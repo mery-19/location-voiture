@@ -12,8 +12,14 @@ namespace LocationVoiture.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: AdminDashboard
-        public ActionResult Index()
+        public ActionResult Index(int? year)
         {
+            if (year == null)
+            {
+                year = DateTime.Now.Year;
+            }
+            ViewBag.year = year;
+
             List<ApplicationUser> users = db.Users.ToList();
             List<Voiture> cars = db.Voitures.ToList();
             List<Reservation> res = db.Reservations.ToList();
@@ -22,7 +28,6 @@ namespace LocationVoiture.Controllers
             List<int> months = new List<int>();
             List<int> cars_nb = new List<int>();
             List<int> res_nb = new List<int>();
-            int year = DateTime.Now.Year;
 
             for (int i = 1; i <= 12; i++)
             {

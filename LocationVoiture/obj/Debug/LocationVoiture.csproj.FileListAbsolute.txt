@@ -523,3 +523,4 @@ D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Vie
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared.Dashboard.resources
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Resources.Views.Shared.Dashboard.fr.resources
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.addFavoriteList.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.addFavoriteList.resources

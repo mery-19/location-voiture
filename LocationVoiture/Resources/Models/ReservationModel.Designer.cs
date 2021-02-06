@@ -133,6 +133,15 @@ namespace LocationVoiture.Resources.Models {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total Price.
+        /// </summary>
+        public static string price {
+            get {
+                return ResourceManager.GetString("price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Note.
         /// </summary>
         public static string remarque {

@@ -115,7 +115,7 @@ namespace LocationVoiture.Resources.Views.Offres {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Offre.
         /// </summary>
         public static string libele {
             get {

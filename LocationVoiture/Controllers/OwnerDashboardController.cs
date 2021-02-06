@@ -12,10 +12,16 @@ namespace LocationVoiture.Controllers
     public class OwnerDashboardController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+
         // GET: Owner
-        public ActionResult Index()
+        public ActionResult Index(int? year)
         {
+            if (year == null)
+            {
+                year = DateTime.Now.Year;
+            }
+            ViewBag.year = year;
+
             var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
 
             /*--STATISTICS START--*/
@@ -26,13 +32,15 @@ namespace LocationVoiture.Controllers
             List<int> tenants = new List<int>();
             List<int> cars_nb = new List<int>();
             List<int> res_nb = new List<int>();
-            int year = DateTime.Now.Year;
+
+            List<float> prices = new List<float>();
 
             for (int i = 1; i <= 12; i++)
             {
                 tenants.Add(users.Count(x => x.date_join.Year == year && x.date_join.Month == i && x.Roles.Any(s => s.RoleId == "2")));
                 cars_nb.Add(cars.Count(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.UserId == user.Id));
                 res_nb.Add(res.Count(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.Voiture.UserId == user.Id));
+                prices.Add(res.Where(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.Voiture.UserId == user.Id).Select(x => x.prix).Sum());
                 /*Total Price*/
                 months.Add(i);
             }
@@ -41,6 +49,7 @@ namespace LocationVoiture.Controllers
             ViewBag.cars = cars_nb;
             ViewBag.res = res_nb;
             ViewBag.tenants = tenants;
+            ViewBag.prices = prices;
             /*-- STATISTICS END--*/
             return View();
         }

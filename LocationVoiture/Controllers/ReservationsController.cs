@@ -14,6 +14,7 @@ namespace LocationVoiture.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        [Authorize(Roles = "Tenant")]
         // GET: Reservations
         public ActionResult Index()
         {
@@ -24,13 +25,14 @@ namespace LocationVoiture.Controllers
 
         // GET: Reservations for the owner
         [Authorize(Roles = "Owner")]
-        public ActionResult Orders()
+        public ActionResult OwnerReservations()
         {
             var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
             var reservations = db.Reservations.Where(x => x.Voiture.ApplicationUser.Id == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Voiture);
             return View(reservations.ToList());
         }
 
+        [Authorize]
         // GET: Reservations/Details/5
         public ActionResult Details(int? id)
         {
@@ -72,9 +74,9 @@ namespace LocationVoiture.Controllers
                 if(isDesponible)
                 {
                     var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
-
                     reservation.UserId = user.Id;
                     reservation.date_ajout = DateTime.Now;
+                    reservation.prix = reservation.prix_total(reservation.id_voiture);
                     db.Reservations.Add(reservation);
                     db.SaveChanges();
                     return RedirectToAction("Index");

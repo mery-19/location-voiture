@@ -141,6 +141,9 @@
   <data name="paiement" xml:space="preserve">
     <value>Type de paiement</value>
   </data>
+  <data name="price" xml:space="preserve">
+    <value>Prix Total</value>
+  </data>
   <data name="remarque" xml:space="preserve">
     <value>Remarque</value>
   </data>

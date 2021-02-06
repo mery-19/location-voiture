@@ -79,6 +79,24 @@ namespace LocationVoiture.Resources.Views.Home {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log in to Book.
+        /// </summary>
+        public static string not_connect {
+            get {
+                return ResourceManager.GetString("not-connect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Book now.
+        /// </summary>
+        public static string reserve {
+            get {
+                return ResourceManager.GetString("reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MAKE YOUR BEST CHOISE HERE.
         /// </summary>
         public static string small_title {

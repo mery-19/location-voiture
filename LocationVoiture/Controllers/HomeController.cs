@@ -19,6 +19,9 @@ namespace LocationVoiture.Controllers
             if (lang != null)
                 Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(lang);
 
+            string name = User.Identity.Name;
+            ViewBag.name = name;
+
             List<Voiture> voitures = db.Voitures.ToList();
             return View(voitures);
         }
