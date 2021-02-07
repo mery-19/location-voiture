@@ -14,13 +14,22 @@ namespace LocationVoiture.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [Authorize(Roles = "Tenant")]
+        //[Authorize(Roles = "Tenant")]
         // GET: Reservations
         public ActionResult Index()
         {
             var user = db.Users.Where(x => x.UserName.Equals(User.Identity.Name)).FirstOrDefault();
-            var reservations = db.Reservations.Where(x => x.UserId == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Voiture);
-            return View(reservations.ToList());
+            if(User.IsInRole("Tenant"))
+            {
+                var reservations = db.Reservations.Where(x => x.UserId == user.Id).Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Voiture);
+                return View(reservations.ToList());
+            }
+            else
+            {
+                var reservations = db.Reservations.Include(r => r.ApplicationUser).Include(r => r.Paiement).Include(r => r.Voiture);
+                return View(reservations.ToList());
+            }
+            
         }
 
         // GET: Reservations for the owner

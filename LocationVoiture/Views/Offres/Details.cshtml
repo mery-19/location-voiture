@@ -1,8 +1,14 @@
 ﻿@model LocationVoiture.Models.Offre
 
 @{
-    //ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+    if (User.IsInRole("Owner"))
+    {
+        Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+    }
 }
 
 
@@ -53,9 +59,12 @@
                         <div class="col-md-8 mx-auto">
                             <center>
                                 <div class="form-group">
+                                    @if(!User.IsInRole("Admin"))
+                                    {
                                     <a href="@Url.Action("Edit", "Offres", new { id = Model.id_offre  })" class="text-success">
                                         @LocationVoiture.Resources.Views.Offres.Index.edit
                                     </a>
+                                    }
                                 </div>
                                 <div class="form-group">
                                     <a href="~/Offres/Index" class="text-success">

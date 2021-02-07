@@ -3,14 +3,25 @@
 @* Cars that will be shown for tenants*@
 
 @{
-    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+    if (User.IsInRole("Tenant"))
+    {
+        Layout = "~/Views/Shared/_TenantDashboard.cshtml";
 
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+    }
 }
 
-<hr />
 
-<h4>@LocationVoiture.Resources.Views.Voitures.Create.car</h4>
-<hr />
+@if (User.IsInRole("Tenant"))
+{
+    <hr />
+    <h4>@LocationVoiture.Resources.Views.Voitures.Create.car</h4>
+    <hr />
+}
+
 
 
 
@@ -72,8 +83,10 @@
                             visibility
                         </i>
                     </a>
-                    <a href="~/Reservations/Create/@item.id_voiture" class="btn btn-success my-4 text-center">Reserve</a>
-
+                    @if (!User.IsInRole("Admin"))
+                    {
+                        <a href="~/Reservations/Create/@item.id_voiture" class="btn btn-success my-4 text-center">Reserve</a>
+                    }
                 </td>
             </tr>
         }

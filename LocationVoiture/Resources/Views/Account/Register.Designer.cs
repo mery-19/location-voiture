@@ -70,6 +70,15 @@ namespace LocationVoiture.Resources.Views.Account {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Agency.
+        /// </summary>
+        public static string agence {
+            get {
+                return ResourceManager.GetString("agence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm Password.
         /// </summary>
         public static string confirmPassword {
@@ -129,6 +138,15 @@ namespace LocationVoiture.Resources.Views.Account {
         public static string owner {
             get {
                 return ResourceManager.GetString("owner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Particular.
+        /// </summary>
+        public static string particulier {
+            get {
+                return ResourceManager.GetString("particulier", resourceCulture);
             }
         }
         

@@ -120,6 +120,9 @@
   <data name="adress" xml:space="preserve">
     <value>Adresse</value>
   </data>
+  <data name="agence" xml:space="preserve">
+    <value>Agence</value>
+  </data>
   <data name="confirmPassword" xml:space="preserve">
     <value>Confirmez le mot de passe</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="owner" xml:space="preserve">
     <value>Propriétaire</value>
+  </data>
+  <data name="particulier" xml:space="preserve">
+    <value>Particulier</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Mot de passe</value>

@@ -1,7 +1,7 @@
 ﻿
 
 $(document).ready(function () {
-
+    hideOnLoad();
     $('.sideMenuToggler').on('click', function () {
         $('.wrapper').toggleClass('active');
 
@@ -276,4 +276,17 @@ $(document).ready(function () {
 
     });
 
+    function hideOnLoad() {
+        $('#typeOwner').hide();
+    }
+    $('#usertype').change(function () {
+        var value = $(this).val();
+        if (value == 'Tenant') {
+            $('#typeOwner').hide();
+        } else if (value == 'Owner') {
+            $('#typeOwner').show();
+        } else {
+            $('#typeOwner').hide();
+        }
+    });
 });

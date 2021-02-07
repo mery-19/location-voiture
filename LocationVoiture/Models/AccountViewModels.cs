@@ -75,6 +75,9 @@ namespace LocationVoiture.Models
         [Display(Name = "type", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
         public string UserType { get; set; }
 
+        [Display(Name = "typeOwner")]
+        public string TypeOwner { get; set; }
+
         [Required]
         [Display(Name = "number", ResourceType = typeof(LocationVoiture.Resources.Views.Account.Register))]
         public string UserPhone { get; set; }

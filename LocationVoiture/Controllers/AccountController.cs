@@ -198,6 +198,7 @@ namespace LocationVoiture.Controllers
         public ActionResult Register()
         {
             ViewBag.UserType = new SelectList(new[] { LocationVoiture.Resources.Views.Account.Register.tenant, LocationVoiture.Resources.Views.Account.Register.owner });
+            ViewBag.TypeOwner = new SelectList(new[] { LocationVoiture.Resources.Views.Account.Register.agence, LocationVoiture.Resources.Views.Account.Register.particulier });
             return View();
         }
 
@@ -211,12 +212,21 @@ namespace LocationVoiture.Controllers
             if (ModelState.IsValid)
             {
                 String type;
+                String typeOwner = "None";
                 ViewBag.UserType = new SelectList(new[] { LocationVoiture.Resources.Views.Account.Register.tenant, LocationVoiture.Resources.Views.Account.Register.owner });
+                ViewBag.TypeOwner = new SelectList(new[] { LocationVoiture.Resources.Views.Account.Register.agence, LocationVoiture.Resources.Views.Account.Register.particulier });
                 if (model.UserType == LocationVoiture.Resources.Views.Account.Register.tenant)
                     type = "Tenant";
                 else
+                {
                     type = "Owner";
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber=model.UserPhone, UserType=type,UserAdress=model.UserAdress, date_join = DateTime.Now };
+                    if (model.TypeOwner == LocationVoiture.Resources.Views.Account.Register.agence)
+                        typeOwner = "Agency";
+                    else
+                        typeOwner = "Particular";
+                }
+                    
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber=model.UserPhone, UserType=type,UserAdress=model.UserAdress, date_join = DateTime.Now, TypeOwner=typeOwner };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

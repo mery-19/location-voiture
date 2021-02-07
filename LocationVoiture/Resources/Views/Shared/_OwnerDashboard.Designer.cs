@@ -61,7 +61,7 @@ namespace LocationVoiture.Resources.Views.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My cars.
+        ///   Looks up a localized string similar to Cars.
         /// </summary>
         public static string car {
             get {

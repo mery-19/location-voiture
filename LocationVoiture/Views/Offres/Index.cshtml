@@ -2,16 +2,24 @@
 
 @{
     //ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+    if (User.IsInRole("Owner"))
+    {
+        Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+    }
 
 }
-
+@if (User.IsInRole("Owner"))
+{
 <p>
     <a href="@Url.Action("Create", "Offres")" class="text-success">
         @LocationVoiture.Resources.Views.Offres.Index.createNew
     </a>
 </p>
-
+}
 <table class="table table-striped">
     <thead>
         <tr>
@@ -47,22 +55,28 @@
                     @Convert.ToDateTime(item.date_ajout).ToString("dd/MM/yyyy")
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit", "Offres", new { id = item.id_offre  })" class="text-success">
-                        <i class="material-icons icon " style="color:yellow">
-                            edit
-                        </i>
-                    </a>
+                    @if (User.IsInRole("Owner"))
+                    {
+                        <a href="@Url.Action("Edit", "Offres", new { id = item.id_offre })" class="text-success">
+                            <i class="material-icons icon " style="color:yellow">
+                                edit
+                            </i>
+                        </a>
+                    }
                     <a href="@Url.Action("Details", "Offres", new { id = item.id_offre  })" class="text-success">
                         <i class="material-icons icon ">
                             visibility
                         </i>
                     </a>
-                    <a data-delete-id="@item.id_offre" class="text-danger delete-link-offre pointer">
-                        <i class="material-icons icon ">
-                            delete
-                        </i>
-                    </a>
-                    @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                    @if (User.IsInRole("Owner"))
+                    {
+                        <a data-delete-id="@item.id_offre" class="text-danger delete-link-offre pointer">
+                            <i class="material-icons icon ">
+                                delete
+                            </i>
+                        </a>
+                        @Html.Hidden("__RequestVerificationToken", @Html.AntiForgeryToken())
+                    }
                 </td>
             </tr>
         }

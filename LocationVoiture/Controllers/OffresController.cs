@@ -19,8 +19,17 @@ namespace LocationVoiture.Controllers
         {
             string name = System.Web.HttpContext.Current.User.Identity.Name;
             ApplicationUser user = db.Users.Where(x => x.UserName.Equals(name)).FirstOrDefault();
-            var offres = db.Offres.Where(x => x.UserId == user.Id).Include(v => v.ApplicationUser);
-            return View(offres.ToList());
+            if(User.IsInRole("Owner"))
+            {
+                var offres = db.Offres.Where(x => x.UserId == user.Id).Include(v => v.ApplicationUser);
+                return View(offres.ToList());
+            }
+            else
+            {
+                var offres = db.Offres.Include(v => v.ApplicationUser);
+                return View(offres.ToList());
+            }
+            
         }
 
         // GET: Offres/Details/5

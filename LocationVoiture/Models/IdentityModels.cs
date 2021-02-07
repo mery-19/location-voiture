@@ -13,6 +13,7 @@ namespace LocationVoiture.Models
     public class ApplicationUser : IdentityUser
     {
         public string UserType { get; set; }
+        public string TypeOwner { get; set; }
         public string UserAdress { get; set; }
         public DateTime date_join { get; set; }
         public virtual ICollection<Reclamation> Reclamations { get; set; }

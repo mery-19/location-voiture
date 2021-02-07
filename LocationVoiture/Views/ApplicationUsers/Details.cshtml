@@ -19,7 +19,17 @@
                             </center>
                         </div>
                     </div>
-
+                    @if (Model.UserType == "Owner")
+                    {
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    Type @LocationVoiture.Resources.Views.Account.Register.owner
+                                    @Html.EditorFor(model => model.TypeOwner, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </center>
+                            </div>
+                        </div>
+                    }
                     <div class="row">
                         <div class="col">
                             <center>
@@ -39,9 +49,10 @@
                     <div class="row">
                         <div class="col">
                             <center>
-                                @LocationVoiture.Resources.Views.Account.Register.adress<br/>
-                                @Html.TextAreaFor(m => m.UserAdress, new { @class = "form-control",@readonly = "readonly" })
-</div>
+                                @LocationVoiture.Resources.Views.Account.Register.adress<br />
+                                @Html.TextAreaFor(m => m.UserAdress, new { @class = "form-control", @readonly = "readonly" })
+                            </center>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col">

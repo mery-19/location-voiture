@@ -2,16 +2,27 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+    if (User.IsInRole("Tenant"))
+    {
+        Layout = "~/Views/Shared/_TenantDashboard.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+    }
+
 }
 
 <div class="mt-2">
     <h2>Reservations</h2>
+    @if (User.IsInRole("Tenant"))
+    {
+        <p>
+            @Html.ActionLink(LocationVoiture.Resources.most.create, "Create")
+        </p>
+        <hr />
+    }
 
-    <p>
-        @Html.ActionLink(LocationVoiture.Resources.most.create, "Create")
-    </p>
-    <hr />
     <table class="table">
         <thead>
             <tr>
