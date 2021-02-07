@@ -41,7 +41,6 @@ namespace LocationVoiture.Controllers
                 cars_nb.Add(cars.Count(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.UserId == user.Id));
                 res_nb.Add(res.Count(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.Voiture.UserId == user.Id));
                 prices.Add(res.Where(x => x.date_ajout.Year == year && x.date_ajout.Month == i && x.Voiture.UserId == user.Id).Select(x => x.prix).Sum());
-                /*Total Price*/
                 months.Add(i);
             }
 
