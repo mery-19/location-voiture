@@ -70,8 +70,8 @@ body {
     width: 12.5rem;
     transition: all ease 0.25s;
     transform: translateX(-100%);
-    /*    z-index: 2000;
-*/
+    z-index: 1;
+
 }
 
 .wrapper .content {
@@ -125,25 +125,6 @@ body {
         margin-left: 12.5rem;
     }
 
-    .wrapper.active .sideMenu {
-        width: 5rem;
-    }
-
-    .wrapper.active .content {
-        margin-left: 5rem;
-    }
-
-    .wrapper.active .sideMenu .nav-link {
-        text-align: center;
-    }
-
-        .wrapper.active .sideMenu .nav-link .icon {
-            margin-right: 0;
-        }
-
-        .wrapper.active .sideMenu .nav-link .text {
-            display: none;
-        }
 }
 
 

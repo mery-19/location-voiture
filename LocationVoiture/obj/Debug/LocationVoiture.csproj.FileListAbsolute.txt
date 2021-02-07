@@ -526,3 +526,5 @@ C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\Loc
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.pdb
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.addBlackList.resources
 C:\Users\merie\OneDrive\Bureau\lv\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.changeId_blackList.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.addBlackList.resources
+D:\mery\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.changeId_blackList.resources
