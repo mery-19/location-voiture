@@ -167,5 +167,14 @@ namespace LocationVoiture.Resources.Views.Shared {
                 return ResourceManager.GetString("roles", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        public static string statitics {
+            get {
+                return ResourceManager.GetString("statitics", resourceCulture);
+            }
+        }
     }
 }

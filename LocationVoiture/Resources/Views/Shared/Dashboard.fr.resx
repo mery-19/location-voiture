@@ -153,4 +153,7 @@
   <data name="roles" xml:space="preserve">
     <value>Rôles</value>
   </data>
+  <data name="statitics" xml:space="preserve">
+    <value>Les statiqtiques</value>
+  </data>
 </root>
