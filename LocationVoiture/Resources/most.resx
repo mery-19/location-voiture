@@ -123,6 +123,12 @@
   <data name="create" xml:space="preserve">
     <value>Create new</value>
   </data>
+  <data name="details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
   <data name="no" xml:space="preserve">
     <value>No</value>
   </data>
@@ -134,6 +140,9 @@
   </data>
   <data name="search" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="users" xml:space="preserve">
+    <value>Users</value>
   </data>
   <data name="yes" xml:space="preserve">
     <value>Yes</value>

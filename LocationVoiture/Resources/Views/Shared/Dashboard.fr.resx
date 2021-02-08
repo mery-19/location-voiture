@@ -120,8 +120,14 @@
   <data name="black_list" xml:space="preserve">
     <value>Liste noire</value>
   </data>
+  <data name="car" xml:space="preserve">
+    <value>Voiture</value>
+  </data>
   <data name="favorite_list" xml:space="preserve">
     <value>Liste des favoris</value>
+  </data>
+  <data name="loc" xml:space="preserve">
+    <value>Locataires</value>
   </data>
   <data name="locataire" xml:space="preserve">
     <value>Locataires</value>
@@ -149,6 +155,9 @@
   </data>
   <data name="price" xml:space="preserve">
     <value>Les prix total</value>
+  </data>
+  <data name="pro" xml:space="preserve">
+    <value>Propriétaire</value>
   </data>
   <data name="roles" xml:space="preserve">
     <value>Rôles</value>

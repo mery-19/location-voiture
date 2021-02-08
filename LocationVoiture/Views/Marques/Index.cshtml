@@ -1,7 +1,14 @@
 ﻿@model IEnumerable<LocationVoiture.Models.Marque>
-@{
-    Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
-}
+    @if (User.IsInRole("Owner"))
+    {
+        Layout = "~/Views/Shared/_OwnerDashboard.cshtml";
+
+    }
+    else if (User.IsInRole("Admin"))
+    {
+        Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+
+    }
 
 <div class="m-5">
     <p>
@@ -32,21 +39,26 @@
                     </td>
                     <td>
 
-                        <a href="@Url.Action("Edit", "Marques", new { id = item.id_marque })" class="text-warning">
-                            <i class="material-icons icon ">
-                                edit
-                            </i>
-                        </a>
+
                         <a href="@Url.Action("Details", "Marques", new { id = item.id_marque })" class="text-success">
                             <i class="material-icons icon ">
                                 visibility
                             </i>
                         </a>
-                        <a href="@Url.Action("Delete", "Marques", new { id = item.id_marque })" class="text-danger">
-                            <i class="material-icons icon ">
-                                delete
-                            </i>
-                        </a>
+                        @if (User.IsInRole("Owner"))
+                        {
+                            <a href="@Url.Action("Edit", "Marques", new { id = item.id_marque })" class="text-warning">
+                                <i class="material-icons icon ">
+                                    edit
+                                </i>
+                            </a>
+                            <a href="@Url.Action("Delete", "Marques", new { id = item.id_marque })" class="text-danger">
+                                <i class="material-icons icon ">
+                                    delete
+                                </i>
+                            </a>
+                        }
+
                     </td>
                 </tr>
             }

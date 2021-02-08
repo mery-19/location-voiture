@@ -10,7 +10,7 @@ using LocationVoiture.Models;
 
 namespace LocationVoiture.Controllers
 {
-    [Authorize(Roles = "Owner")]
+    [Authorize(Roles = "Ownern,Admin")]
     public class MarquesController : BaseController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -36,17 +36,20 @@ namespace LocationVoiture.Controllers
             return View(marque);
         }
 
+        [Authorize(Roles = "Owner")]
         // GET: Marques/Create
         public ActionResult Create()
         {
             return View();
         }
 
+
         // POST: Marques/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Owner")]
         public ActionResult Create(Marque marque)
         {
             if (ModelState.IsValid)
@@ -60,6 +63,7 @@ namespace LocationVoiture.Controllers
             return View(marque);
         }
 
+        [Authorize(Roles = "Owner")]
         // GET: Marques/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -80,6 +84,7 @@ namespace LocationVoiture.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Owner")]
         public ActionResult Edit([Bind(Include = "id_marque,libele,date_ajout")] Marque marque)
         {
             if (ModelState.IsValid)
@@ -91,6 +96,7 @@ namespace LocationVoiture.Controllers
             return View(marque);
         }
 
+        [Authorize(Roles = "Owner")]
         // GET: Marques/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -109,6 +115,7 @@ namespace LocationVoiture.Controllers
         // POST: Marques/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Owner")]
         public ActionResult DeleteConfirmed(int id)
         {
             Marque marque = db.Marques.Find(id);

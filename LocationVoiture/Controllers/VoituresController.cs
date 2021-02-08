@@ -35,6 +35,9 @@ namespace LocationVoiture.Controllers
         [Authorize]
         public ActionResult Disponible(DateTime? date)
         {
+            if (date != null)
+                ViewBag.date = date;
+
             var voitures = db.Voitures.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre).ToList();
             List<Voiture> disponibles = new List<Voiture>();
             List<Voiture> reserver = new List<Voiture>();

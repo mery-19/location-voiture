@@ -70,11 +70,29 @@ namespace LocationVoiture.Resources.Views.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Car.
+        /// </summary>
+        public static string car {
+            get {
+                return ResourceManager.GetString("car", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Favotite list.
         /// </summary>
         public static string favorite_list {
             get {
                 return ResourceManager.GetString("favorite_list", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tenant.
+        /// </summary>
+        public static string loc {
+            get {
+                return ResourceManager.GetString("loc", resourceCulture);
             }
         }
         
@@ -156,6 +174,15 @@ namespace LocationVoiture.Resources.Views.Shared {
         public static string price {
             get {
                 return ResourceManager.GetString("price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Owner.
+        /// </summary>
+        public static string pro {
+            get {
+                return ResourceManager.GetString("pro", resourceCulture);
             }
         }
         

@@ -174,10 +174,8 @@ namespace LocationVoiture.Controllers
 
         public bool reserve(int id_voiture,DateTime pick_up, DateTime return_date)
         {
-            var voitures = db.Voitures.Include(v => v.ApplicationUser).Include(v => v.Marque).Include(v => v.Offre).ToList();
             List<Voiture> disponibles = new List<Voiture>();
             List<Voiture> reserver = new List<Voiture>();
-            bool dispo = false;
             var reservartions = db.Reservations.Where(x => x.id_voiture == id_voiture).ToList();
             foreach (Reservation res in reservartions)
             {
