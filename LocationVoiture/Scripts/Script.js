@@ -127,21 +127,29 @@ $(document).ready(function () {
     });
 
     $(function () {
-        $("a.delete-link-user").click(function () {
-
+        $("a.block-link-user").click(function () {
             var token = $("[name='__RequestVerificationToken']").val();
-
+            var user_id = $(this).attr('data-block-id');
+            var color= $(this).attr('data-color');
             console.log(token);
             var checkstr;
             if (Cookies.get('culture') === "fr") {
-                checkstr = confirm('Voullez vous vraiment supprimer cet utilisateur?');
+                if (color == "red")
+                    checkstr = confirm('Voullez vous vraiment bloquer cet utilisateur?');
+                else
+                    checkstr = confirm('Voullez vous vraiment débloquer cet utilisateur?');
 
-            } else {
-                checkstr = confirm('Are you sure you want to delete this?');
+            } else
+            {
+                if (color == "red")
+                    checkstr = confirm('Are you sure you want to block this user?');
+                else
+                    checkstr = confirm('Are you sure you want to unblock this user?');
+                
             }
             if (checkstr == true) {
                 $.ajax({
-                    url: '/ApplicationUsers/Delete/' + $(".delete-link-user").attr('data-delete-id'),
+                    url: '/ApplicationUsers/Delete/' + user_id,
                     type: "POST",
                     data: {
                         __RequestVerificationToken: token,

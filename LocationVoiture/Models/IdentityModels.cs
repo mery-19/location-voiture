@@ -15,6 +15,8 @@ namespace LocationVoiture.Models
         public string UserType { get; set; }
         public string TypeOwner { get; set; }
         public string UserAdress { get; set; }
+
+        public Boolean blocked { get; set; }
         public DateTime date_join { get; set; }
         public virtual ICollection<Reclamation> Reclamations { get; set; }
         public virtual ICollection<Voiture> Voitures { get; set; }

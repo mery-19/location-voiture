@@ -632,7 +632,6 @@ C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoitur
 C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoiture\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoiture\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoiture\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.csprojAssemblyReference.cache
 C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.InitialCreate.resources
 C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.AddColumnToUserType.resources
 C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.addForeignKeyToOffer.resources
@@ -684,3 +683,4 @@ C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoitur
 C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.csproj.CopyComplete
 C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.dll
 C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.pdb
+C:\Users\merie\OneDrive\Bureau\Projet S3\ASP.NET\location-voiture\LocationVoiture\obj\Debug\LocationVoiture.Migrations.addBlockUser.resources

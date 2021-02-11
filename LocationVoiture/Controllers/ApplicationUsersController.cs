@@ -122,10 +122,11 @@ namespace LocationVoiture.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             ApplicationUser applicationUser = db.Users.Find(id);
-            FavoriteList favoriteList = db.FavoriteLists.Where(x => x.UserId == id).FirstOrDefault();
-            if (favoriteList != null)
-                db.FavoriteLists.Remove(favoriteList);
-            db.Users.Remove(applicationUser);
+            if(applicationUser.blocked==true)
+                applicationUser.blocked = false;
+            else
+                applicationUser.blocked = true;
+            db.Entry(applicationUser).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

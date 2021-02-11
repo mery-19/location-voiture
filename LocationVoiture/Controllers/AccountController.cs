@@ -226,7 +226,7 @@ namespace LocationVoiture.Controllers
                         typeOwner = "Particular";
                 }
                     
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber=model.UserPhone, UserType=type,UserAdress=model.UserAdress, date_join = DateTime.Now, TypeOwner=typeOwner };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, PhoneNumber=model.UserPhone, UserType=type,UserAdress=model.UserAdress, date_join = DateTime.Now, TypeOwner=typeOwner,blocked=false };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
