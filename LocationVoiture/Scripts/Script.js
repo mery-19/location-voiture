@@ -311,12 +311,25 @@ $(document).ready(function () {
     }
     $('#usertype').change(function () {
         var value = $(this).val();
-        if (value == 'Tenant') {
-            $('#typeOwner').hide();
-        } else if (value == 'Owner') {
-            $('#typeOwner').show();
-        } else {
-            $('#typeOwner').hide();
+        if (Cookies.get('culture') === "fr")
+        {
+            if (value == 'Locataire') {
+                $('#typeOwner').hide();
+            } else if (value == 'Propriétaire') {
+                $('#typeOwner').show();
+            } else {
+                $('#typeOwner').hide();
+            }
         }
+        else
+        {
+            if (value == 'Tenant') {
+                $('#typeOwner').hide();
+            } else if (value == 'Owner') {
+                $('#typeOwner').show();
+            } else {
+                $('#typeOwner').hide();
+            }
+        }    
     });
 });

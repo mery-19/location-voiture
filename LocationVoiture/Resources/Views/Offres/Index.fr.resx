@@ -148,6 +148,6 @@
     <value>Taux de remise</value>
   </data>
   <data name="voitureDispo" xml:space="preserve">
-    <value>Voitures disponibles</value>
+    <value>Voitures réservées</value>
   </data>
 </root>
